@@ -1,5 +1,6 @@
 const tailwindIgnored = [
     '/^@/',
+    'color-scheme',
     'custom',
     'tailwind',
     'extends',
@@ -32,6 +33,8 @@ module.exports = {
                 severity: 'warning',
                 ignore: [
                     'multicolumn',
+                    'featurequeries',
+                    'css-featurequeries',
                     'object-fit',
                     'calc',
                     'border-radius',
@@ -86,6 +89,7 @@ module.exports = {
             {
                 ignore: [ 'custom-elements' ],
                 ignoreTypes: [
+                    'color-scheme',
                     'css-doodle',
                     'v-deep',
                 ],
@@ -95,6 +99,7 @@ module.exports = {
             true,
             {
                 ignorePseudoElements: [
+                    'color-scheme',
                     'v-deep',
                     'css-doodle',
                 ],

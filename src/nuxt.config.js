@@ -1,9 +1,8 @@
 import { resolve } from 'path';
 
 // Dotenv Vars
-require(
-'dotenv'
-).config();
+import dotenv from 'dotenv';
+dotenv.config();
 
 // Var
 const meta = [
@@ -12,6 +11,12 @@ const meta = [
             hid: 'description',
             name: 'description',
             content: process.env.DESCRIPTION,
+        },
+        {
+            once: true,
+            hid: 'color-scheme',
+            name: 'color-scheme',
+            content: 'light dark',
         },
     ]
     , links = [
@@ -22,14 +27,17 @@ const meta = [
             type: 'image/x-icon',
             href: '/favicon.ico',
         },
+    ]
+    , noscript = [
         {
             once: true,
-            hid: 'humans',
-            rel: 'author',
-            type: 'text/plain',
-            href: '/humans.txt',
+            hid: 'noscript-fonts',
+            innerHTML: '<link rel="stylesheet" href="/fonts/inter.css">',
         },
     ]
+    , __dangerouslyDisableSanitizersByTagID = {
+        'noscript-fonts': [ 'innerHTML' ],
+    }
 ;
 
 // Nuxt config
@@ -55,6 +63,8 @@ export default {
         title: process.env.TITLE,
         meta,
         links,
+        noscript,
+        __dangerouslyDisableSanitizersByTagID,
     },
     /*
      * Plugins
@@ -73,7 +83,10 @@ export default {
     /*
      * buildModules
      */
-    buildModules: [ 'nuxt-compress' ],
+    buildModules: [
+        '@nuxtjs/dotenv',
+        'nuxt-compress',
+    ],
     /*
      * Build
      */

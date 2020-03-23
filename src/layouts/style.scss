@@ -1,0 +1,39 @@
+.layout {
+
+    display: flex;
+    flex: 1 1 100%;
+    flex-direction: column;
+
+    header {
+
+        display: flex;
+        flex: 0 1 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        padding: 16px;
+
+    }
+
+    main {
+
+        display: flex;
+        flex: 1 1 100%;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+
+    }
+
+    footer {
+
+        display: flex;
+        flex: 0 1 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        padding: 16px;
+
+    }
+
+}

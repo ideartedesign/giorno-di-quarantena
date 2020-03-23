@@ -1,14 +1,68 @@
 <template>
-    <main class="container">
+    <section class="page container">
 
-        ASD
+        <countdown
+            :start-date="START_DATE"
+            :end-date="END_DATE"
+            disabled
+            distance-from-start
+            show-percentage
+            hide-days-label
+            hide-days-separator
+            hide-hours
+            hide-minutes
+            hide-seconds
+            type="skeuomorphism"
+            class="countdown--bigger"
+        >
+            <template #title>
+                <h1 v-text="title" />
+            </template>
+        </countdown>
 
-    </main>
+        <countdown
+            v-model="now"
+            :start-date="START_DATE"
+            :end-date="END_DATE"
+            class="countdown--small"
+        />
+
+    </section>
 </template>
 
 <script>
+    // Lazy
+    import { hydrateWhenIdle } from 'vue-lazy-hydration';
+
+    // Data
+    const START_DATE = '2020-03-11T00:00:00.000Z'
+          , END_DATE = '2020-04-03T00:00:00.000Z'
+    ;
+
     // Page
     export default {
         name: 'homepage',
+        components: {
+            'countdown': hydrateWhenIdle(
+                () => import(
+                    '~/components/Countdown'
+                )
+            ),
+        },
+        data: () => (
+            {
+                title: process.env.TITLE.toUpperCase(),
+                now: Date.now(),
+                END_DATE,
+                START_DATE,
+            }
+        ),
+
     };
 </script>
+
+<style
+    scoped
+    lang="scss"
+    src="./style.scss"
+></style>

@@ -1,7 +1,58 @@
 <template>
     <div class="layout">
 
-        <nuxt />
+        <header>
+
+            <nuxt-link
+                to="/"
+                title="Giorno di quarantena"
+                exact
+            >
+                #giornodiquarantena
+            </nuxt-link>
+
+            <button
+                :class="{
+                    'theme--light': ! isDarkTheme,
+                    'theme--dark': isDarkTheme,
+                }"
+                type="button"
+                title="Theme toggle"
+                @click="isDarkTheme = ! isDarkTheme"
+            >
+                Theme toggle
+            </button>
+
+        </header>
+
+        <main>
+            <nuxt />
+        </main>
+
+        <footer>
+
+            <span>
+                © 2020
+                <a
+                    href="https://giornodiquarantena.it"
+                    title="Giorno di quarantena"
+                    rel="noopener"
+                    target="_blank"
+                >
+                    giornodiquarantena.it
+                </a>
+            </span>
+
+            <a
+                href="https://ideartedesign.com"
+                title="IDEARTE Design LAB"
+                rel="noopener"
+                target="_blank"
+            >
+                Made by <strong>IDEARTE LAB</strong>
+            </a>
+
+        </footer>
 
     </div>
 </template>
@@ -10,5 +61,50 @@
     // Layout
     export default {
         name: 'default',
+        data: () => (
+            {
+                isDarkModeAvailable: false,
+                isDarkTheme: false,
+            }
+        ),
+        mounted() {
+
+            if(
+                window
+                    .matchMedia(
+                        '(prefers-color-scheme)'
+                    )
+                    .media !== 'not all'
+            ) {
+
+                this.isDarkModeAvailable = true;
+
+                this.isDarkTheme = !! window
+                    .getComputedStyle(
+                        document.documentElement
+                    )
+                    .getPropertyValue(
+                        '--color-mode'
+                    )
+                ;
+
+            }
+
+        },
+        head() {
+
+            return {
+                bodyAttrs: {
+                    class: `theme--${ this.isDarkTheme ? 'dark' : 'light' }`,
+                },
+            };
+
+        },
     };
 </script>
+
+<style
+    scoped
+    lang="scss"
+    src="./style.scss"
+></style>

@@ -1,4 +1,27 @@
+@import "theme/variables";
+
 :root {
+
+    --color-primary: #{$color-primary};
+    --color-text: #{$color-text};
+    --color-background: #{$color-background};
+    --color-box-shadow-start: #{$color-box-shadow-start};
+    --color-box-shadow-end: #{$color-box-shadow-end};
+    --duration: .36s;
+    --timing: ease;
+
+    color-scheme: light dark; // stylelint-disable-line
+
+    @media ( prefers-color-scheme: dark ) {
+
+        --color-mode: dark;
+        --color-primary: #{$color-dark-primary};
+        --color-text: #{$color-dark-text};
+        --color-background: #{$color-dark-background};
+        --color-box-shadow-start: #{$color-dark-box-shadow-start};
+        --color-box-shadow-end: #{$color-dark-box-shadow-end};
+
+    }
 
     font-size: 16px;
 
@@ -7,5 +30,129 @@
 * {
 
     min-width: 0;
+
+}
+
+html {
+
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+
+}
+
+body {
+
+    color: var( --color-text, #{$color-text} );
+    font-family:
+        "Inter",
+        system-ui,
+        -apple-system,
+        Segoe UI,
+        Roboto,
+        Ubuntu,
+        Cantarell,
+        Noto Sans,
+        sans-serif,
+        Helvetica,
+        Arial,
+        "Apple Color Emoji",
+        "Segoe UI Emoji";
+    background-color: var( --color-background, #{$color-background} );
+    transition: color var( --duration, .5s ) var( --timing, ease ), background-color var( --duration, .5s ) var( --timing, ease );
+
+    @supports ( font-variation-settings: normal ) {
+
+        font-family:
+            "Inter Var",
+            system-ui,
+            -apple-system,
+            Segoe UI,
+            Roboto,
+            Ubuntu,
+            Cantarell,
+            Noto Sans,
+            sans-serif,
+            Helvetica,
+            Arial,
+            "Apple Color Emoji",
+            "Segoe UI Emoji";
+
+    }
+
+    &.theme {
+
+        &--light {
+
+            --color-primary: #{$color-primary};
+            --color-text: #{$color-text};
+            --color-background: #{$color-background};
+            --color-box-shadow-start: #{$color-box-shadow-start};
+            --color-box-shadow-end: #{$color-box-shadow-end};
+
+        }
+
+        &--dark {
+
+            --color-mode: dark;
+            --color-primary: #{$color-dark-primary};
+            --color-text: #{$color-dark-text};
+            --color-background: #{$color-dark-background};
+            --color-box-shadow-start: #{$color-dark-box-shadow-start};
+            --color-box-shadow-end: #{$color-dark-box-shadow-end};
+
+        }
+
+    }
+
+}
+
+html,
+body,
+body > div:first-child,
+body > div:first-child > div:first-child,
+body .layout {
+
+    min-height: 100vh;
+
+}
+
+.layout {
+
+    padding-top: env( safe-area-inset-top, 0 );
+    padding-right: env( safe-area-inset-right, 0 );
+    padding-bottom: env( safe-area-inset-bottom, 0 );
+    padding-left: env( safe-area-inset-left, 0 );
+
+}
+
+a {
+
+    text-decoration: none;
+
+}
+
+a,
+button {
+
+    color: var( --color-text, #{$color-text} );
+    background-color: var( --color-background, #{$color-background} );
+    border-color: var( --color-text, #{$color-text} );
+    transition: color var( --duration, .5s ) var( --timing, ease ), background-color var( --duration, .5s ) var( --timing, ease );
+
+}
+
+h1 {
+
+    font-weight: inherit;
+    font-size: inherit;
+
+}
+
+.container {
+
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
 
 }
