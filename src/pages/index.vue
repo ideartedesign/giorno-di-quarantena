@@ -35,7 +35,7 @@
     import { hydrateWhenIdle } from 'vue-lazy-hydration';
 
     // Data
-    const START_DATE = '2020-03-11T00:00:00.000Z'
+    const START_DATE = '2020-03-09T00:00:00.000Z'
           , END_DATE = '2020-04-03T00:00:00.000Z'
     ;
 
