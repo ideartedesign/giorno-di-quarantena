@@ -1,13 +1,14 @@
 {
     "name": "@ideartedesign/giorno-di-quarantena",
     "version": "1.0.0",
-    "description": "Generative Art is the idea realized as genetic code of artificial events, as construction of dynamic complex systems able to generate endless variations. This is also a nuxt-module to make it easy to do.",
+    "description": "Giorno di quarantena",
     "author": "IDEARTE Design <info@ideartedesign.com> (https://ideartedesign.com)",
     "license": "MIT",
     "homepage": "https://giornodiquarantena.it",
     "keywords": [
         "quarantena",
         "covid",
+        "covid-19",
         "newCovid",
         "sars-covid",
         "quarantine",
@@ -22,7 +23,7 @@
             "name": "Alex Salvatore Trotta <alexsalvatoretrotta@gmail.com> (https://ideartedesign.com)"
         }
     ],
-    "main": "lib/module.js",
+    "main": "docs/index.html",
     "repository": {
         "type": "git",
         "url": "https://github.com/ideartedesign/giorno-di-quarantena.git"
@@ -73,7 +74,7 @@
         "babel-eslint": "latest",
         "babel-jest": "^25.1.0",
         "codecov": "^3.6.2",
-        "core-js": "3",
+        "core-js": "^3.6.4",
         "eslint": "^6.8.0",
         "eslint-config-standard": "^14.1.1",
         "eslint-loader": "latest",
