@@ -4,8 +4,8 @@
         <header>
 
             <nuxt-link
+                :title="title"
                 to="/"
-                title="Giorno di quarantena"
                 exact
             >
                 #giornodiquarantena
@@ -27,14 +27,13 @@
 
             <span>
                 © 2020
-                <a
-                    href="https://giornodiquarantena.it"
-                    title="Giorno di quarantena"
-                    rel="noopener"
-                    target="_blank"
+                <nuxt-link
+                    to="/"
+                    title="giornodiquarantena.it"
+                    exact
                 >
                     giornodiquarantena.it
-                </a>
+                </nuxt-link>
             </span>
 
             <a
@@ -69,6 +68,7 @@
             {
                 isDarkModeAvailable: false,
                 isDarkTheme: false,
+                title: process.env.TITLE,
             }
         ),
         mounted() {
