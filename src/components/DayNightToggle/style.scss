@@ -1,26 +1,32 @@
 .day-night-toggle {
 
-    --toggle-size: 20px;
-    --switch-w: calc( var( --toggle-size ) * 5 );
-    --switch-h: calc( var( --switch-w ) / 2 );
-    --switch-handle-scale: .63;
-    --switch-off-handle-x: -.125em;
-    --switch-on-handle-x: calc( 100% + var( --switch-off-handle-x ) );
-    --switch-transition-duration: .5s;
+    --size: 20px;
+    --width: calc( var( --size ) * 5 );
+    --height: calc( var( --width ) / 2 );
+    --scale: .63;
+    --off-margins: -.125em;
+    --on-margins: calc( 100% + var( --off-margins ) );
+    --transition: all .5s ease;
+    --border-color-day: hsl( 207, 30%, 95% );
+    --border-color-night: hsl( 207, 30%, 50% );
+    --background-color-day: linear-gradient( 180deg, #021037 0%, #20206a 19%, #4184b1 66%, #62e7f7 100% );
+    --background-color-sun-moon: #fffad8;
+    --box-shadow-day: 0 0 .25em .0625em #fbee8d, 0 0 2em 0 #ffeb3b, inset -.25em -.25em 0 0 #fbee8e, inset -.3125em -.3125em 0 .625em #fff5b2;
+    --box-shadow-night: inset -.1875em -.1875em 0 0 #fbe7ef, inset -.5625em -.5625em 0 0 #fffff7;
 
     position: relative;
     display: flex;
-    width: var( --switch-w );
-    height: var( --switch-h );
+    width: var( --width );
+    height: var( --height );
     overflow: hidden;
-    font-size: var( --toggle-size );
-    background-image: linear-gradient( 180deg, #021037 0%, #20206a 19%, #4184b1 66%, #62e7f7 100% );
+    font-size: var( --size );
+    background-image: var( --background-color-day );
     background-position: bottom;
     background-size: auto 8em;
-    border: .125em solid hsl( 207, 30%, 95% );
-    border-radius: calc( var( --switch-h ) / 2 );
+    border: .125em solid var( --border-color-day );
+    border-radius: calc( var( --height ) / 2 );
     cursor: pointer;
-    transition: all var( --switch-transition-duration ) ease;
+    transition: var( --transition ) .23s;
 
     input {
 
@@ -36,27 +42,27 @@
     span {
 
         display: block;
-        width: var( --switch-h );
-        height: var( --switch-h );
-        margin-top: var( --switch-off-handle-x );
-        background: #fffad8;
+        width: var( --height );
+        height: var( --height );
+        margin-top: var( --off-margins );
+        background: var( --background-color-sun-moon );
         border-radius: 50%;
-        box-shadow: 0 0 .25em .0625em #fbee8d, 0 0 2em 0 #ffeb3b, inset -.25em -.25em 0 0 #fbee8e, inset -.3125em -.3125em 0 .625em #fff5b2;
-        transform: translateX( var( --switch-off-handle-x ) ) scale( var( --switch-handle-scale ) );
-        transition: all var( --switch-transition-duration ) ease;
+        box-shadow: var( --box-shadow-day );
+        transform: translateX( var( --off-margins ) ) scale( var( --scale ) );
+        transition: var( --transition );
 
     }
 
     &--checked {
 
         background-position: top;
-        border-color: hsl( 207, 30%, 50% );
+        border-color: var( --border-color-night );
 
         span {
 
             background: transparent;
-            box-shadow: inset -.1875em -.1875em 0 0 #fbe7ef, inset -.5625em -.5625em 0 0 #fffff7;
-            transform: translateX( var( --switch-on-handle-x ) ) scale( var( --switch-handle-scale ) );
+            box-shadow: var( --box-shadow-night );
+            transform: translateX( var( --on-margins ) ) scale( var( --scale ) );
 
         }
 
