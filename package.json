@@ -35,6 +35,7 @@
         "access": "public"
     },
     "scripts": {
+        "predev": "npm install",
         "dev": "nuxt -o src",
         "build": "nuxt build src",
         "prestart": "npm run build",
