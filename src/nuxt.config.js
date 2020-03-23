@@ -28,7 +28,7 @@ const ENV = dotenv
             content: 'light dark',
         },
     ]
-    , links = [
+    , link = [
         {
             once: true,
             hid: 'favicon',
@@ -37,6 +37,7 @@ const ENV = dotenv
             href: '/favicon.ico',
         },
     ]
+    , script = []
     , noscript = [
         {
             once: true,
@@ -44,10 +45,70 @@ const ENV = dotenv
             innerHTML: '<link rel="stylesheet" href="/fonts/inter.min.css">',
         },
     ]
-    , __dangerouslyDisableSanitizersByTagID = {
-        'noscript-fonts': [ 'innerHTML' ],
-    }
+    , __dangerouslyDisableSanitizersByTagID = {}
+    , modules = [ '@nuxtjs/pwa' ]
 ;
+
+// Google Analytics
+if( ENV.ANALYTICS ) {
+
+    link.push(
+        {
+            once: true,
+            hid: 'preconnect-google-tagmanager',
+            rel: 'preconnect',
+            href: 'https://www.googletagmanager.com',
+            crossorigin: true,
+        },
+    );
+    link.push(
+        {
+            once: true,
+            hid: 'prefetch-google-tagmanager',
+            rel: 'dns-prefetch',
+            href: 'https://www.googletagmanager.com',
+            crossorigin: true,
+        },
+    );
+    link.push(
+        {
+            once: true,
+            hid: 'preconnect-google-analytics',
+            rel: 'preconnect',
+            href: 'https://www.google-analytics.com',
+            crossorigin: true,
+        },
+    );
+    link.push(
+        {
+            once: true,
+            hid: 'prefetch-google-analytics',
+            rel: 'dns-prefetch',
+            href: 'https://www.google-analytics.com',
+            crossorigin: true,
+        },
+    );
+
+    script.push(
+        {
+            once: true,
+            hid: 'google-tag-manager-inner-html',
+            innerHTML: `window.dataLayer=window.dataLayer||[];window.dataLayer.push({originalLocation:document.location.protocol+'//'+document.location.hostname+document.location.pathname+document.location.search});`,
+        },
+    );
+
+    __dangerouslyDisableSanitizersByTagID[ 'google-tag-manager-inner-html' ] = [ 'innerHTML' ];
+
+    modules.push(
+        [
+            '@nuxtjs/google-analytics',
+            {
+                id: ENV.ANALYTICS,
+            },
+        ],
+    );
+
+}
 
 // Nuxt config
 export default {
@@ -71,7 +132,7 @@ export default {
         },
         title: ENV.TITLE,
         meta,
-        links,
+        link,
         noscript,
         __dangerouslyDisableSanitizersByTagID,
     },
@@ -82,13 +143,7 @@ export default {
     /*
      * Modules
      */
-    modules: [
-        '@nuxtjs/pwa',
-        '@nuxtjs/google-analytics',
-    ],
-    googleAnalytics: {
-        id: ENV.GA_ID,
-    },
+    modules,
     meta: {
         name: ENV.TITLE,
         description: ENV.DESCRIPTION,
