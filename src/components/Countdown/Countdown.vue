@@ -3,6 +3,24 @@
 
         <div class="countdown__outer">
 
+            <div
+                v-if="showPercentage"
+                :aria-valuenow="percentage"
+                role="progressbar"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                class="countdown__progress"
+            >
+                <svg viewBox="0 0 100 100">
+                    <path
+                        d="M 50,50 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94"
+                        fill-opacity="0"
+                        stroke-dashoffset="0"
+                        :stroke-dasharray="( 296 * percentage ) / 100"
+                    />
+                </svg>
+            </div>
+
             <div class="countdown__content">
 
                 <header v-if="$slots.title || $scopedSlots.title" class="countdown__header">

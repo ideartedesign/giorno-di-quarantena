@@ -9,6 +9,7 @@
     --color-box-shadow-end: #{$color-box-shadow-end};
     --duration: .36s;
     --timing: ease;
+    --progress-thickness: 16px;
 
     @media ( prefers-color-scheme: dark ) {
 
@@ -28,6 +29,13 @@
 * {
 
     min-width: 0;
+
+}
+
+::selection {
+
+    color: var( --color-text );
+    background-color: var( --color-background );
 
 }
 
@@ -106,9 +114,6 @@ body {
 }
 
 html,
-body,
-body > div:first-child,
-body > div:first-child > div:first-child,
 body .layout {
 
     min-height: 100vh;

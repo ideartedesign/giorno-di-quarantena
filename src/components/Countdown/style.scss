@@ -1,8 +1,13 @@
 .countdown {
 
-    $prefix: &;
+    $color-box-shadow-start: var( --color-box-shadow-start, #fff );
+    $color-box-shadow-end: var( --color-box-shadow-end, rgba( 174, 174, 192, .4 ) );
+    $color-background: var( --color-background, rgba( #333, .4 ) );
 
-    position: relative;
+    $progress-thickness: 16px;
+    $prefix: &;
+    $transition: all var( --duration, .5s ) var( --timing, ease );
+
     display: flex;
     flex: 0 1 auto;
     flex-direction: column;
@@ -18,6 +23,39 @@
         line-height: 17px;
         letter-spacing: 2px;
         text-transform: uppercase;
+
+    }
+
+    &__outer {
+
+        position: relative;
+        transition: var( --transition, $transition );
+
+    }
+
+    &__progress {
+
+        position: absolute;
+        top: - $progress-thickness;
+        right: - $progress-thickness;
+        bottom: - $progress-thickness;
+        left: - $progress-thickness;
+        z-index: -1;
+        overflow: hidden;
+        border-radius: 50%;
+        box-shadow: ( - $progress-thickness ) ( - $progress-thickness ) ( $progress-thickness * 2 ) 0 $color-box-shadow-start, $progress-thickness $progress-thickness ( $progress-thickness * 2 ) 0 $color-box-shadow-end;
+        transition: var( --transition, $transition );
+
+        svg {
+
+            margin: -6px;
+            transition: var( --transition, $transition );
+            fill: $color-background;
+            stroke: $color-box-shadow-start;
+            stroke-width: $progress-thickness / 4;
+            stroke-dashoffset: 0;
+
+        }
 
     }
 
@@ -38,13 +76,11 @@
             span {
 
                 display: inline-block;
-                vertical-align: middle;
 
             }
 
             > .number {
 
-                position: relative;
                 font-size: 48px;
                 line-height: 57px;
 
@@ -65,7 +101,7 @@
 
     &--type {
 
-        &-skeuomorphism {
+        &-neomorphism {
 
             #{$prefix}__outer {
 
@@ -79,8 +115,7 @@
                 min-height: 375px;
                 margin: 0 auto;
                 border-radius: 999999px;
-                box-shadow: -12px -12px 32px 0 var( --color-box-shadow-start, #fff ), 12px 12px 32px 0 var( --color-box-shadow-end, rgba( 174, 174, 192, .4 ) );
-                transition: box-shadow var( --duration, .5s ) var( --timing, ease );
+                box-shadow: ( - $progress-thickness ) ( - $progress-thickness ) ( $progress-thickness * 2 ) 0 $color-box-shadow-start, $progress-thickness $progress-thickness ( $progress-thickness * 2 ) 0 $color-box-shadow-end;
 
             }
 

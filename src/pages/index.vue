@@ -12,7 +12,7 @@
             hide-hours
             hide-minutes
             hide-seconds
-            type="skeuomorphism"
+            type="neomorphism"
             class="countdown--bigger"
         >
             <template #title>
