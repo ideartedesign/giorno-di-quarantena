@@ -11,17 +11,10 @@
                 #giornodiquarantena
             </nuxt-link>
 
-            <button
-                :class="{
-                    'theme--light': ! isDarkTheme,
-                    'theme--dark': isDarkTheme,
-                }"
-                type="button"
+            <day-night-toggle
+                v-model="isDarkTheme"
                 title="Theme toggle"
-                @click="isDarkTheme = ! isDarkTheme"
-            >
-                Theme toggle
-            </button>
+            />
 
         </header>
 
@@ -58,9 +51,19 @@
 </template>
 
 <script>
+    // Lazy
+    import { hydrateWhenIdle } from 'vue-lazy-hydration';
+
     // Layout
     export default {
         name: 'default',
+        components: {
+            'day-night-toggle': hydrateWhenIdle(
+                () => import(
+                    '~/components/DayNightToggle'
+                )
+            ),
+        },
         data: () => (
             {
                 isDarkModeAvailable: false,
