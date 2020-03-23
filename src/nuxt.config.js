@@ -32,7 +32,7 @@ const meta = [
         {
             once: true,
             hid: 'noscript-fonts',
-            innerHTML: '<link rel="stylesheet" href="/fonts/inter.css">',
+            innerHTML: '<link rel="stylesheet" href="/fonts/inter.min.css">',
         },
     ]
     , __dangerouslyDisableSanitizersByTagID = {
