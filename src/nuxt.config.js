@@ -2,15 +2,24 @@ import { resolve } from 'path';
 
 // Dotenv Vars
 import dotenv from 'dotenv';
-dotenv.config();
 
-// Var
-const meta = [
+const ENV = dotenv
+        .config(
+            {
+                path: resolve(
+                    __dirname,
+                    '.env',
+                ),
+            }
+        )
+        .parsed
+    // Var
+    , meta = [
         {
             once: true,
             hid: 'description',
             name: 'description',
-            content: process.env.DESCRIPTION,
+            content: ENV.DESCRIPTION,
         },
         {
             once: true,
@@ -60,7 +69,7 @@ export default {
         htmlAttrs: {
             lang: 'en',
         },
-        title: process.env.TITLE,
+        title: ENV.TITLE,
         meta,
         links,
         noscript,
@@ -78,7 +87,21 @@ export default {
         '@nuxtjs/google-analytics',
     ],
     googleAnalytics: {
-        id: process.env.GA_ID,
+        id: ENV.GA_ID,
+    },
+    meta: {
+        name: ENV.TITLE,
+        description: ENV.DESCRIPTION,
+        theme_color: '#aeaec0',
+        ogHost: ENV.URL,
+    },
+    manifest: {
+        name: ENV.TITLE,
+        short_name: ENV.TITLE,
+        description: ENV.DESCRIPTION,
+    },
+    icon: {
+        accessibleIcons: false,
     },
     /*
      * buildModules
