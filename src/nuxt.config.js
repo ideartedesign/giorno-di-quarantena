@@ -46,10 +46,7 @@ const ENV = dotenv
         },
     ]
     , __dangerouslyDisableSanitizersByTagID = {}
-    , modules = [
-        '@nuxtjs/pwa',
-        '@nuxtjs/sitemap',
-    ]
+    , modules = [ '@nuxtjs/pwa' ]
 ;
 
 // Google Analytics
@@ -170,6 +167,7 @@ export default {
      */
     buildModules: [
         '@nuxtjs/dotenv',
+        '@nuxtjs/sitemap',
         'nuxt-compress',
     ],
     /*
