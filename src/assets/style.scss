@@ -10,8 +10,6 @@
     --duration: .36s;
     --timing: ease;
 
-    color-scheme: light dark; // stylelint-disable-line
-
     @media ( prefers-color-scheme: dark ) {
 
         --color-mode: dark;
