@@ -1,9 +1,9 @@
 .day-night-toggle {
 
-    --toggle-size: 40px;
-    --switch-w: 100px;
-    --switch-h: 50px;
-    --switch-handle-scale: .65;
+    --toggle-size: 20px;
+    --switch-w: calc( var( --toggle-size ) * 5 );
+    --switch-h: calc( var( --switch-w ) / 2 );
+    --switch-handle-scale: .63;
     --switch-off-handle-x: -.125em;
     --switch-on-handle-x: calc( 100% + var( --switch-off-handle-x ) );
     --switch-transition-duration: .5s;
