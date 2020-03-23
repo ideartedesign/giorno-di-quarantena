@@ -268,6 +268,10 @@
                 type: Boolean,
                 default: false,
             },
+            distanceEndFromStart: {
+                type: Boolean,
+                default: false,
+            },
             showPercentage: {
                 type: Boolean,
                 default: false,
@@ -430,16 +434,17 @@
                 return DATE.toJSON();
 
             },
-            distance() {
+            distanceFromEndToStart() {
 
-                if( this.startDate && this.distanceFromStart ) {
+                return this.endDateToNumber - this.startDateToNumber;
 
-                    if( ! this.startDateToNumber )
-                        return 0;
+            },
+            distanceFromStartToValue() {
 
-                    return this.endDateToNumber - this.startDateToNumber;
+                return this.valueToNumber - this.startDateToNumber;
 
-                }
+            },
+            distanceFromEndToValue() {
 
                 if( ! this.valueToNumber )
                     return 0;
@@ -447,12 +452,28 @@
                 return this.endDateToNumber - this.valueToNumber;
 
             },
+            distance() {
+
+                if( this.startDate ) {
+
+                    if( this.distanceFromStart )
+                        return this.distanceFromStartToValue;
+
+                    if( this.distanceEndFromStart )
+                        return this.distanceFromEndToStart;
+
+                }
+
+                return this.distanceFromEndToValue;
+
+            },
             percentage() {
 
+                if( ! this.startDate )
+                    return 0;
+
                 return Math.round(
-                    (
-                        ( this.valueToNumber - this.startDateToNumber ) * 100
-                    ) / this.distanceFromStart
+                    100 * this.distanceFromStartToValue / this.distanceFromEndToStart
                 );
 
             },
