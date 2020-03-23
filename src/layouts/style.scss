@@ -11,7 +11,6 @@
         flex-direction: row;
         justify-content: space-between;
         width: 100%;
-        padding: 16px;
 
     }
 
@@ -32,7 +31,16 @@
         flex-direction: row;
         justify-content: space-between;
         width: 100%;
-        padding: 16px;
+
+    }
+
+    header,
+    footer {
+
+        padding: 48px;
+        font-size: 16px;
+        line-height: 19px;
+        letter-spacing: .2px;
 
     }
 

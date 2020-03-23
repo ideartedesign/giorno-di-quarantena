@@ -14,6 +14,7 @@
             <day-night-toggle
                 v-model="isDarkTheme"
                 title="Theme toggle"
+                type="skeuomorphism"
             />
 
         </header>

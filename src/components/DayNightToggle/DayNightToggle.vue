@@ -50,6 +50,10 @@
                 type: Boolean,
                 default: false,
             },
+            type: {
+                type: String,
+                default: null,
+            },
         },
         data: () => (
             {
@@ -61,6 +65,7 @@
 
                 return {
                     'day-night-toggle--checked': this.model,
+                    [ `day-night-toggle--type-${ this.type || 'default' }` ]: !! this.type,
                 };
 
             },
