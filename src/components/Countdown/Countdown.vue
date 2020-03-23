@@ -300,6 +300,22 @@
                 type: Boolean,
                 default: false,
             },
+            hideDaysLeadingZero: {
+                type: Boolean,
+                default: false,
+            },
+            hideHoursLeadingZero: {
+                type: Boolean,
+                default: false,
+            },
+            hideMinutesLeadingZero: {
+                type: Boolean,
+                default: false,
+            },
+            hideSecondsLeadingZero: {
+                type: Boolean,
+                default: false,
+            },
             hideDaysValue: {
                 type: Boolean,
                 default: false,
@@ -486,19 +502,19 @@
                       , results = {
                           days: {
                               label: days > 1 || days <= 0 ? this.locale.DAY_PLURAL : this.locale.DAY_SINGULAR,
-                              value: days,
+                              value: this.hideDaysLeadingZero && days.toString().length === 1 ? `0${ days }` : days,
                           },
                           hours: {
                               label: hours > 1 || hours <= 0 ? this.locale.HOUR_PLURAL : this.locale.HOUR_SINGULAR,
-                              value: hours,
+                              value: this.hideHoursLeadingZero && hours.toString().length === 1 ? `0${ hours }` : hours,
                           },
                           minutes: {
                               label: minutes > 1 || minutes <= 0 ? this.locale.MINUTE_PLURAL : this.locale.MINUTE_SINGULAR,
-                              value: minutes,
+                              value: this.hideMinutesLeadingZero && minutes.toString().length === 1 ? `0${ minutes }` : minutes,
                           },
                           seconds: {
                               label: seconds > 1 || seconds <= 0 ? this.locale.SECOND_PLURAL : this.locale.SECOND_SINGULAR,
-                              value: seconds,
+                              value: this.hideSecondsLeadingZero && seconds.toString().length === 1 ? `0${ seconds }` : seconds,
                           },
                       }
                 ;
