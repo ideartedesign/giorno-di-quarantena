@@ -100,6 +100,17 @@
             };
 
         },
+        jsonld() {
+
+            return {
+                '@context': 'https://schema.org/',
+                '@type': 'WebSite',
+                name: process.env.TITLE,
+                about: process.env.DESCRIPTION,
+                url: process.env.URL,
+            };
+
+        },
     };
 </script>
 
