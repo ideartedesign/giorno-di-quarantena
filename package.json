@@ -99,7 +99,7 @@
         "postcss-html": "^0.36.0",
         "postcss-nested": "latest",
         "postcss-scoped": "latest",
-        "prettier": "latest",
+        "prettier": "^2.0.2",
         "prettier-eslint": "latest",
         "prettier-stylelint": "^0.4.2",
         "request": "latest",
