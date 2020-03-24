@@ -4,43 +4,62 @@
     flex: 1 1 100%;
     flex-direction: column;
 
-    header {
-
-        display: flex;
-        flex: 0 1 100%;
-        flex-direction: row;
-        justify-content: space-between;
-        width: 100%;
-
-    }
-
     main {
 
         display: flex;
         flex: 1 1 100%;
         flex-direction: column;
         width: 100%;
+        padding: 16px;
         text-align: center;
-
-    }
-
-    footer {
-
-        display: flex;
-        flex: 0 1 100%;
-        flex-direction: row;
-        justify-content: space-between;
-        width: 100%;
 
     }
 
     header,
     footer {
 
-        padding: 48px;
+        display: flex;
+        flex: 0 1 100%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+
+        padding: 16px;
         font-size: 16px;
         line-height: 19px;
         letter-spacing: .2px;
+        white-space: nowrap;
+
+        @media screen and ( min-width: 600px ) {
+
+            padding: 48px;
+
+        }
+
+    }
+
+    footer {
+
+        flex-direction: column;
+
+        > * {
+
+            line-height: 2;
+
+        }
+
+        @media screen and ( min-width: 600px ) {
+
+            flex-direction: row;
+
+            > * {
+
+                line-height: inherit;
+
+            }
+
+        }
 
     }
 

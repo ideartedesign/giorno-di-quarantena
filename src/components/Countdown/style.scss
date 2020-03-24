@@ -81,8 +81,15 @@
 
             > .number {
 
-                font-size: 48px;
-                line-height: 57px;
+                font-size: 30px;
+                line-height: 40px;
+
+                @media screen and ( min-width: 600px ) {
+
+                    font-size: 48px;
+                    line-height: 57px;
+
+                }
 
             }
 
@@ -111,11 +118,18 @@
                 align-items: center;
                 justify-content: center;
 
-                min-width: 375px;
-                min-height: 375px;
+                min-width: 300px;
+                min-height: 300px;
                 margin: 0 auto;
                 border-radius: 999999px;
                 box-shadow: ( - $progress-thickness ) ( - $progress-thickness ) ( $progress-thickness * 2 ) 0 $color-box-shadow-start, $progress-thickness $progress-thickness ( $progress-thickness * 2 ) 0 $color-box-shadow-end;
+
+                @media screen and ( min-width: 600px ) {
+
+                    min-width: 375px;
+                    min-height: 375px;
+
+                }
 
             }
 
