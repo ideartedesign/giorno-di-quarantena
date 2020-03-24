@@ -47,10 +47,15 @@ const ENV = dotenv
     ]
     , __dangerouslyDisableSanitizersByTagID = {}
     , modules = [ '@nuxtjs/pwa' ]
+    , buildModules = [
+        '@nuxtjs/dotenv',
+        '@nuxtjs/sitemap',
+        'nuxt-compress',
+    ]
 ;
 
 // Google Analytics
-if( ENV.ANALYTICS ) {
+if( ENV.GOOGLE_ANALYTICS ) {
 
     link.push(
         {
@@ -99,11 +104,11 @@ if( ENV.ANALYTICS ) {
 
     __dangerouslyDisableSanitizersByTagID[ 'google-tag-manager-inner-html' ] = [ 'innerHTML' ];
 
-    modules.push(
+    buildModules.push(
         [
             '@nuxtjs/google-analytics',
             {
-                id: ENV.ANALYTICS,
+                id: ENV.GOOGLE_ANALYTICS,
             },
         ],
     );
@@ -165,11 +170,7 @@ export default {
     /*
      * buildModules
      */
-    buildModules: [
-        '@nuxtjs/dotenv',
-        '@nuxtjs/sitemap',
-        'nuxt-compress',
-    ],
+    buildModules,
     /*
      * Build
      */
