@@ -23,6 +23,12 @@ const ENV = dotenv
         },
         {
             once: true,
+            hid: 'keywords',
+            name: 'keywords',
+            content: ENV.KEYWORDS,
+        },
+        {
+            once: true,
             hid: 'color-scheme',
             name: 'color-scheme',
             content: 'light dark',
@@ -154,6 +160,7 @@ export default {
         gzip: true,
     },
     meta: {
+        author: 'IDEARTE Design',
         name: ENV.TITLE,
         description: ENV.DESCRIPTION,
         theme_color: '#aeaec0',
