@@ -274,6 +274,10 @@
                 type: String,
                 default: ':',
             },
+            timezone: {
+                type: Object,
+                default: null,
+            },
             type: {
                 type: String,
                 default: null,
@@ -398,6 +402,9 @@
                 } else
                     value = this.value;
 
+                if( this.timezoneToMilliseconds )
+                    value += this.timezoneToMilliseconds;
+
                 return value <= 0 ? 0 : value;
 
             },
@@ -450,6 +457,26 @@
                 );
 
                 return DATE.toJSON();
+
+            },
+            timezoneToMilliseconds() {
+
+                if( ! this.timezone?.type )
+                    return 0;
+
+                const milliseconds = this.timezone.value * 60 * 60 * 1000;
+                let timezone_value = 0;
+
+                switch( this.timezone.type ) {
+                case '-':
+                    timezone_value -= milliseconds;
+                    break;
+                case '+':
+                default:
+                    timezone_value += milliseconds;
+                }
+
+                return timezone_value;
 
             },
             distanceFromEndToStart() {
@@ -636,20 +663,22 @@
         methods: {
             newTick() {
 
+                const now = Date.now();
+
                 if( this.value instanceof Date || typeof this.value === 'string' ) {
 
                     const DATE = new Date(
-                        Date.now()
+                        now
                     );
 
                     if( this.value instanceof Date )
-                        return this.value.getTime();
+                        return DATE.getTime();
 
                     return DATE.toJSON();
 
                 }
 
-                return Date.now();
+                return now;
 
             },
             // setInterval methods
