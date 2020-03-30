@@ -165,6 +165,8 @@ export default {
         description: ENV.DESCRIPTION,
         theme_color: '#aeaec0',
         ogHost: ENV.URL,
+        ogImage: '/open-graph_square.png',
+        twitterCreator: '@luxdamore',
     },
     manifest: {
         name: ENV.TITLE,
