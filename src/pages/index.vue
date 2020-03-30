@@ -24,7 +24,6 @@
             v-model="value"
             :start-date="START_DATE"
             :end-date="END_DATE"
-            :timezone="timezone"
             class="countdown--small"
         />
 
@@ -36,8 +35,8 @@
     import { hydrateWhenIdle } from 'vue-lazy-hydration';
 
     // Data
-    const START_DATE = '2020-03-09 00:00:00'
-          , END_DATE = '2020-04-04 00:00:00'
+    const START_DATE = '2020-03-09T00:00:00.000Z'
+          , END_DATE = '2020-04-04T00:00:00.000Z'
     ;
 
     // Page
@@ -54,10 +53,6 @@
             {
                 title: process.env.TITLE.toUpperCase(),
                 value: Date.now(),
-                timezone: {
-                    type: '-',
-                    value: 1,
-                },
                 END_DATE,
                 START_DATE,
             }
