@@ -22,6 +22,7 @@
 
         <countdown
             v-model="value"
+            :timezone="timezone"
             :start-date="START_DATE"
             :end-date="END_DATE"
             class="countdown--small"
@@ -53,6 +54,10 @@
             {
                 title: process.env.TITLE.toUpperCase(),
                 value: Date.now(),
+                timezone: {
+                    type: '+',
+                    value: 2,
+                },
                 END_DATE,
                 START_DATE,
             }
