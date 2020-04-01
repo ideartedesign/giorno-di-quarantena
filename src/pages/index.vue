@@ -13,20 +13,20 @@
             hide-minutes
             hide-seconds
             type="neomorphism"
-            class="countdown--bigger"
         >
             <template #title>
                 <h1 v-text="title" />
             </template>
         </countdown>
 
-        <countdown
-            v-model="value"
-            :timezone="timezone"
-            :start-date="START_DATE"
-            :end-date="END_DATE"
-            class="countdown--small"
-        />
+        <div class="margin-top--48">
+            <countdown
+                v-model="value"
+                :timezone="timezone"
+                :start-date="START_DATE"
+                :end-date="END_DATE"
+            />
+        </div>
 
     </section>
 </template>
@@ -54,6 +54,7 @@
             {
                 title: process.env.TITLE.toUpperCase(),
                 value: Date.now(),
+                // fixme: use getTimezoneOffset
                 timezone: {
                     type: '+',
                     value: 2,
