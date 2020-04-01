@@ -59,10 +59,10 @@
         "@nuxtjs/google-analytics": "^2.2.3",
         "@nuxtjs/pwa": "^3.0.0-beta.20",
         "@nuxtjs/sitemap": "^2.1.0",
-        "nuxt": "^2.12.1",
+        "nuxt": "^2.12.2",
         "nuxt-compress": "^1.1.0",
         "nuxt-jsonld": "^1.4.5",
-        "nuxt-start": "^2.12.1",
+        "nuxt-start": "^2.12.2",
         "vue-lazy-hydration": "^1.0.0-beta.12"
     },
     "devDependencies": {
