@@ -52,7 +52,10 @@ const ENV = dotenv
         },
     ]
     , __dangerouslyDisableSanitizersByTagID = {}
-    , modules = [ '@nuxtjs/pwa' ]
+    , modules = [
+        '@luxdamore/nuxt-canvas-sketch',
+        '@nuxtjs/pwa',
+    ]
     , buildModules = [
         '@nuxtjs/dotenv',
         '@nuxtjs/sitemap',
