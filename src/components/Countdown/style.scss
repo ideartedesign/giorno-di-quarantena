@@ -96,9 +96,16 @@
             > .label {
 
                 font-weight: 400;
-                font-size: 16px;
-                line-height: 19px;
+                font-size: 11px;
+                line-height: 15px;
                 text-transform: lowercase;
+                
+                @media screen and ( min-width: 600px ) {
+                    
+                    font-size: 16px;
+                    line-height: 19px;
+
+                }
 
             }
 
@@ -118,10 +125,10 @@
                 align-items: center;
                 justify-content: center;
 
-                min-width: 300px;
-                min-height: 300px;
+                min-width: 250px;
+                min-height: 250px;
                 margin: 0 auto;
-                border-radius: 999999px;
+                border-radius: 9999px;
                 box-shadow: ( - $progress-thickness ) ( - $progress-thickness ) ( $progress-thickness * 2 ) 0 $color-box-shadow-start, $progress-thickness $progress-thickness ( $progress-thickness * 2 ) 0 $color-box-shadow-end;
 
                 @media screen and ( min-width: 600px ) {

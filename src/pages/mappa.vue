@@ -3,11 +3,11 @@
 
         <iframe
             id="mappa"
+            :src="iframeSrc"
             name="mappa"
             class="iframe"
             width="100%"
             height="100%"
-            src="https://coronavirus.app/map?embed=true"
             frameborder="0"
             loading="lazy"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
@@ -21,6 +21,27 @@
     // Page
     export default {
         name: 'mappa',
+        data: () => (
+            {
+                iframeSrc: 'https://coronavirus.app/map?embed=true',
+            }
+        ),
+        head() {
+
+            return {
+                titleTemplate: 'Mappa contagi - %s',
+                link: [
+                    {
+                        once: true,
+                        hid: 'preload-coronavirus-map',
+                        rel: 'preload',
+                        href: this.iframeSrc,
+                        crossorigin: true,
+                    },
+                ],
+            };
+        
+        },
     };
 </script>
 
@@ -39,11 +60,11 @@
 
             width: 100%;
             height: 100%;
-            min-height: 700px;
+            min-height: 630px;
             border-radius: 6px;
             pointer-events: none;
 
         }
-        
+
     }
 </style>
