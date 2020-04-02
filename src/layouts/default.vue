@@ -22,6 +22,12 @@
         <main>
             <nuxt />
         </main>
+        
+        <div class="actions">
+            <nuxt-link class="padding outline rounded margin-auto" v-bind="linkAttrs">
+                {{ linkAttrs.title }}
+            </nuxt-link>
+        </div>
 
         <footer>
 
@@ -71,6 +77,27 @@
                 title: process.env.TITLE,
             }
         ),
+        computed: {
+            linkAttrs() {
+
+                const IS_HOMEPAGE = this.$route.path === '/';
+
+                if( ! IS_HOMEPAGE ) {
+
+                    return {
+                        to: '/',
+                        title: 'torna alla homepage',
+                    }; 
+                
+                }
+
+                return {
+                    to: '/mappa',
+                    title: 'visualizza la mappa',
+                }; 
+
+            },
+        },
         mounted() {
 
             if(

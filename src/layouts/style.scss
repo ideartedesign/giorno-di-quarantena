@@ -10,8 +10,15 @@
         flex: 1 1 100%;
         flex-direction: column;
         width: 100%;
+        max-height: calc( 100vh - 85px - 100px );
         padding: 16px;
         text-align: center;
+
+        @media screen and ( min-width: 600px ) {
+
+            max-height: calc( 100vh - 150px - 130px );
+
+        }
 
     }
 

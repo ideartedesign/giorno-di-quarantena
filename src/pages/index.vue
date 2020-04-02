@@ -63,7 +63,6 @@
                 START_DATE,
             }
         ),
-
     };
 </script>
 

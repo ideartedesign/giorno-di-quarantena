@@ -127,6 +127,8 @@ body .layout {
     padding-bottom: env( safe-area-inset-bottom, 0 );
     padding-left: env( safe-area-inset-left, 0 );
 
+    text-align: center;
+
 }
 
 a {
@@ -160,8 +162,36 @@ h1 {
 
 }
 
-.margin-top--48 {
+.margin {
 
-    margin-top: 48px;
+    &-auto {
+
+        margin: 0 auto;
     
+    }
+
+    &-top--48 {
+
+        margin-top: 48px;
+    
+    }
+
+}
+
+.padding {
+
+    padding: 2px 8px;
+
+}
+
+.outline {
+
+    border: 1px solid var( --color-text, #{$color-text} );
+
+}
+
+.rounded {
+
+    border-radius: 999px;
+
 }
