@@ -1,11 +1,22 @@
 <template>
     <section class="page">
 
+        <div class="actions">
+            <a
+                title="Corona virus app"
+                class="btn margin padding outline rounded"
+                rel="noopener"
+                href="http://coronavirus.app/"
+                target="_blank"
+            >
+                scopri di più >
+            </a>
+        </div>
+
         <iframe
             id="mappa"
             :src="iframeSrc"
             name="mappa"
-            class="iframe"
             width="100%"
             height="100%"
             frameborder="0"
@@ -35,6 +46,7 @@
                         once: true,
                         hid: 'preload-coronavirus-map',
                         rel: 'preload',
+                        as: 'document',
                         href: this.iframeSrc,
                         crossorigin: true,
                     },
@@ -56,11 +68,11 @@
 
         overflow: hidden;
 
-        .iframe {
+        iframe {
 
             width: 100%;
             height: 100%;
-            min-height: 630px;
+            min-height: 560px;
             border-radius: 6px;
             pointer-events: none;
 

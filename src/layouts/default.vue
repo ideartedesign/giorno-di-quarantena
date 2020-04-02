@@ -8,7 +8,7 @@
                 to="/"
                 exact
             >
-                #giornodiquarantena
+                <h1>#giornodiquarantena</h1>
             </nuxt-link>
 
             <day-night-toggle
@@ -24,9 +24,36 @@
         </main>
         
         <div class="actions">
-            <nuxt-link class="padding outline rounded margin-auto" v-bind="linkAttrs">
-                {{ linkAttrs.title }}
+
+            <nuxt-link
+                to="/"
+                title="Homepage"
+                class="btn margin padding outline rounded"
+                exact
+            >
+                <h5>home</h5>
             </nuxt-link>
+
+            <nuxt-link
+                to="/mappa"
+                title="Mappa"
+                class="btn margin padding outline rounded"
+                exact
+            >
+                <h5>mappa</h5>
+            </nuxt-link>
+
+            <!--
+                <nuxt-link
+                    to="/3d"
+                    title="3D"
+                    class="btn margin padding outline rounded"
+                    exact
+                >
+                    <h5>3D</h5>
+                </nuxt-link>
+            -->
+
         </div>
 
         <footer>
@@ -38,18 +65,20 @@
                     title="giornodiquarantena.it"
                     exact
                 >
-                    giornodiquarantena.it
+                    <h2>giornodiquarantena.it</h2>
                 </nuxt-link>
             </span>
 
-            <a
-                href="https://ideartedesign.com"
-                title="IDEARTE Design LAB"
-                rel="noopener"
-                target="_blank"
-            >
-                Made by <strong>IDEARTE LAB</strong>
-            </a>
+            <p>
+                <a
+                    href="https://ideartedesign.com"
+                    title="IDEARTE Design LAB"
+                    rel="noopener"
+                    target="_blank"
+                >
+                    Made by <strong>IDEARTE LAB</strong>
+                </a>
+            </p>
 
         </footer>
 
@@ -77,27 +106,6 @@
                 title: process.env.TITLE,
             }
         ),
-        computed: {
-            linkAttrs() {
-
-                const IS_HOMEPAGE = this.$route.path === '/';
-
-                if( ! IS_HOMEPAGE ) {
-
-                    return {
-                        to: '/',
-                        title: 'torna alla homepage',
-                    }; 
-                
-                }
-
-                return {
-                    to: '/mappa',
-                    title: 'visualizza la mappa',
-                }; 
-
-            },
-        },
         mounted() {
 
             if(
