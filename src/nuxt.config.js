@@ -42,13 +42,6 @@ const ENV = dotenv
             type: 'image/x-icon',
             href: '/favicon.ico',
         },
-        {
-            once: true,
-            hid: 'preconnect-jsdelivr',
-            rel: 'preconnect',
-            href: 'https://cdn.jsdelivr.net',
-            crossorigin: true,
-        },
     ]
     , script = []
     , noscript = [
@@ -70,6 +63,15 @@ const ENV = dotenv
 // Google Analytics
 if( ENV.GOOGLE_ANALYTICS ) {
 
+    link.push(
+        {
+            once: true,
+            hid: 'preconnect-jsdelivr',
+            rel: 'preconnect',
+            href: 'https://cdn.jsdelivr.net',
+            crossorigin: true,
+        },
+    );
     link.push(
         {
             once: true,
