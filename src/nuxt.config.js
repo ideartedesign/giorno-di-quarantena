@@ -42,6 +42,13 @@ const ENV = dotenv
             type: 'image/x-icon',
             href: '/favicon.ico',
         },
+        {
+            once: true,
+            hid: 'preconnect-jsdelivr',
+            rel: 'preconnect',
+            href: 'https://cdn.jsdelivr.net',
+            crossorigin: true,
+        },
     ]
     , script = []
     , noscript = [
