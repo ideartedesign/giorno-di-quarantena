@@ -48,12 +48,18 @@
 
         svg {
 
-            margin: -6px;
+            margin: -2px;
             transition: var( --transition, $transition );
             fill: $color-background;
             stroke: $color-box-shadow-start;
             stroke-width: $progress-thickness / 4;
             stroke-dashoffset: 0;
+
+            @media screen and ( min-width: 600px ) {
+
+                margin: -6px;
+
+            }
 
         }
 
@@ -99,9 +105,9 @@
                 font-size: 11px;
                 line-height: 15px;
                 text-transform: lowercase;
-                
+
                 @media screen and ( min-width: 600px ) {
-                    
+
                     font-size: 16px;
                     line-height: 19px;
 
@@ -125,8 +131,8 @@
                 align-items: center;
                 justify-content: center;
 
-                min-width: 250px;
-                min-height: 250px;
+                min-width: 270px;
+                min-height: 270px;
                 margin: 0 auto;
                 border-radius: 9999px;
                 box-shadow: ( - $progress-thickness ) ( - $progress-thickness ) ( $progress-thickness * 2 ) 0 $color-box-shadow-start, $progress-thickness $progress-thickness ( $progress-thickness * 2 ) 0 $color-box-shadow-end;
