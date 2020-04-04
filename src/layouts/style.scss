@@ -12,7 +12,7 @@
         width: 100%;
         padding: 16px;
         text-align: center;
-        
+
     }
 
     header,
@@ -31,7 +31,7 @@
         letter-spacing: .2px;
         white-space: nowrap;
 
-        @media screen and ( min-width: 600px ) {
+        @media screen and ( min-width: 720px ) {
 
             padding: 48px;
 
@@ -49,18 +49,52 @@
 
         }
 
-        @media screen and ( min-width: 600px ) {
+        @media screen and ( min-width: 720px ) {
 
             flex-direction: row;
 
             > * {
 
                 line-height: inherit;
-
+    
             }
 
         }
 
     }
 
+    .actions {
+
+        display: flex;
+        flex: 0 1 100%;
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: -8px;
+
+        @media screen and ( min-width: 720px ) {
+
+            flex-direction: row;
+
+        }
+
+    }
+
+    .social-container {
+
+        font-size: 1.5rem;
+
+        ::v-deep .svg-inline--fa {
+
+            vertical-align: inherit;
+
+        }
+
+        ::v-deep > .social-title {
+
+            font-weight: lighter;
+            font-size: .9rem;
+
+        }
+
+    }
 }

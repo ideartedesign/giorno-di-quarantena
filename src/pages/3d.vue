@@ -1,11 +1,24 @@
 <template>
     <section class="page">
 
-        <h5 v-if="loading">
+        <small v-if="loading">
             Caricamento ..
-        </h5>
+        </small>
         
         <canvas ref="canvas" />
+
+        <div class="actions">
+            <h1>Corona virus 3D Model</h1>
+            <a
+                title="Corona virus 3D Model"
+                class="btn margin padding outline rounded"
+                rel="noopener"
+                href="https://spline.design/coronavirus3d/"
+                target="_blank"
+            >
+                scopri di più >
+            </a>
+        </div>
         
     </section>
 </template>

@@ -8,9 +8,9 @@
                 to="/"
                 exact
             >
-                <h1>#giornodiquarantena</h1>
+                <h4>#giornodiquarantena</h4>
             </nuxt-link>
-
+            
             <day-night-toggle
                 v-model="isDarkTheme"
                 title="Theme toggle"
@@ -19,10 +19,6 @@
 
         </header>
 
-        <main>
-            <nuxt />
-        </main>
-        
         <div class="actions">
 
             <nuxt-link
@@ -31,7 +27,7 @@
                 class="btn margin padding outline rounded"
                 exact
             >
-                <h5>home</h5>
+                <h3>home</h3>
             </nuxt-link>
 
             <nuxt-link
@@ -40,21 +36,23 @@
                 class="btn margin padding outline rounded"
                 exact
             >
-                <h5>mappa</h5>
+                <h3>mappa</h3>
             </nuxt-link>
 
-            <!--
-                <nuxt-link
-                    to="/3d"
-                    title="3D"
-                    class="btn margin padding outline rounded"
-                    exact
-                >
-                    <h5>3D</h5>
-                </nuxt-link>
-            -->
+            <nuxt-link
+                to="/io-resto-positivo"
+                title="Io resto positivo"
+                class="btn margin padding outline rounded"
+                exact
+            >
+                <h3>pensa positivo</h3>
+            </nuxt-link>
 
         </div>
+
+        <main>
+            <nuxt />
+        </main>
 
         <footer>
 
@@ -65,9 +63,79 @@
                     title="giornodiquarantena.it"
                     exact
                 >
-                    <h2>giornodiquarantena.it</h2>
+                    <h4>giornodiquarantena.it</h4>
                 </nuxt-link>
             </span>
+
+            <client-only>
+                <social-sharing
+                    :url="$route.path"
+                    :title="title"
+                    :description="description"
+                    :hashtags="keywords"
+                    :quote="description"
+                    twitter-user="luxdamore"
+                    inline-template
+                >
+                    <div class="social-container">
+
+                        <network network="facebook">
+                            <button
+                                type="button"
+                                class="btn icon margin rounded"
+                                title="Condividi su Facebook"
+                            >
+                                <font-awesome-icon :icon="[ 'fab', 'facebook' ]" />
+                            </button>
+                        </network>
+                        <network network="linkedin">
+                            <button
+                                type="button"
+                                class="btn icon margin rounded"
+                                title="Condividi su Linkedin"
+                            >
+                                <font-awesome-icon :icon="[ 'fab', 'linkedin' ]" />
+                            </button>
+                        </network>
+                        <network network="telegram">
+                            <button
+                                type="button"
+                                class="btn icon margin rounded"
+                                title="Condividi su Telegram"
+                            >
+                                <font-awesome-icon :icon="[ 'fab', 'telegram' ]" />
+                            </button>
+                        </network>
+                        <network network="twitter">
+                            <button
+                                type="button"
+                                class="btn icon margin rounded"
+                                title="Condividi su Twitter"
+                            >
+                                <font-awesome-icon :icon="[ 'fab', 'twitter' ]" />
+                            </button>
+                        </network>
+                        <network network="whatsapp">
+                            <button
+                                type="button"
+                                class="btn icon margin rounded"
+                                title="Condividi su WhatsApp"
+                            >
+                                <font-awesome-icon :icon="[ 'fab', 'whatsapp' ]" />
+                            </button>
+                        </network>
+
+                        <h6 class="social-title">
+                            <small>
+                                <em>
+                                    condividi (non il virus)
+                                </em>
+                            </small>
+                        </h6>
+
+                    </div>
+                </social-sharing>
+            </client-only>
 
             <p>
                 <a
@@ -104,6 +172,9 @@
                 isDarkModeAvailable: false,
                 isDarkTheme: false,
                 title: process.env.TITLE,
+                description: process.env.DESCRIPTION,
+                url: process.env.URL,
+                keywords: process.env.KEYWORDS,
             }
         ),
         mounted() {
@@ -144,9 +215,9 @@
             return {
                 '@context': 'https://schema.org/',
                 '@type': 'WebSite',
-                name: process.env.TITLE,
-                about: process.env.DESCRIPTION,
-                url: process.env.URL,
+                name: this.title,
+                about: this.description,
+                url: this.url,
             };
 
         },

@@ -1,18 +1,6 @@
 <template>
     <section class="page">
 
-        <div class="actions">
-            <a
-                title="Corona virus app"
-                class="btn margin padding outline rounded"
-                rel="noopener"
-                href="http://coronavirus.app/"
-                target="_blank"
-            >
-                scopri di più >
-            </a>
-        </div>
-
         <iframe
             id="mappa"
             :src="iframeSrc"
@@ -24,6 +12,19 @@
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
         />
+
+        <div class="actions container">
+            <h1>Mappa</h1>
+            <a
+                title="Corona virus app"
+                class="btn margin padding outline rounded"
+                rel="noopener"
+                href="http://coronavirus.app/"
+                target="_blank"
+            >
+                scopri di più >
+            </a>
+        </div>
 
     </section>
 </template>
