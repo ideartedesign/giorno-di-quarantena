@@ -55,7 +55,7 @@
             stroke-width: $progress-thickness / 4;
             stroke-dashoffset: 0;
 
-            @media screen and ( min-width: 600px ) {
+            @media screen and ( min-width: 720px ) {
 
                 margin: -7px;
 
@@ -90,7 +90,7 @@
                 font-size: 30px;
                 line-height: 40px;
 
-                @media screen and ( min-width: 600px ) {
+                @media screen and ( min-width: 720px ) {
 
                     font-size: 48px;
                     line-height: 57px;
@@ -106,7 +106,7 @@
                 line-height: 15px;
                 text-transform: lowercase;
 
-                @media screen and ( min-width: 600px ) {
+                @media screen and ( min-width: 720px ) {
 
                     font-size: 16px;
                     line-height: 19px;
@@ -137,7 +137,7 @@
                 border-radius: 9999px;
                 box-shadow: ( - $progress-thickness ) ( - $progress-thickness ) ( $progress-thickness * 2 ) 0 $color-box-shadow-start, $progress-thickness $progress-thickness ( $progress-thickness * 2 ) 0 $color-box-shadow-end;
 
-                @media screen and ( min-width: 600px ) {
+                @media screen and ( min-width: 720px ) {
 
                     min-width: 400px;
                     min-height: 400px;
