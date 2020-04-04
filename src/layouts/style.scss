@@ -56,20 +56,20 @@
             > * {
 
                 line-height: inherit;
-    
+
             }
 
         }
 
     }
 
-    .actions {
+    .menu {
 
         display: flex;
         flex: 0 1 100%;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
+        justify-content: center;
 
         margin-top: 8px;
         margin-bottom: 32px;
@@ -100,4 +100,5 @@
         }
 
     }
+
 }

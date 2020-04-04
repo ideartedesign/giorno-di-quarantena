@@ -19,7 +19,7 @@
 
         </header>
 
-        <div class="actions">
+        <div class="menu">
 
             <nuxt-link
                 to="/"
