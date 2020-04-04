@@ -1,5 +1,6 @@
 # 💪🏻 Giorno di quarantena
 
+Thanks to [NovelCovid](https://github.com/NovelCOVID/API) for the API.
 ___
 
 ## Development
