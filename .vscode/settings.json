@@ -51,6 +51,8 @@
         "datetime",
         "donerbeck",
         "featurequeries",
+        "fontawesome",
+        "fortawesome",
         "giornodiquarantena",
         "glslify",
         "instanceof",
@@ -63,6 +65,7 @@
         "mousemove",
         "mousemoved",
         "neomorphism",
+        "novelcovid",
         "nyquist",
         "onaudioprocess",
         "onupdate",
@@ -77,6 +80,7 @@
         "valuemin",
         "valuenow",
         "webgl",
+        "whatsapp",
         "wireframe"
     ],
     "cSpell.ignoreWords": [
