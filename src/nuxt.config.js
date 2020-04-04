@@ -42,12 +42,19 @@ const ENV = dotenv
             type: 'image/x-icon',
             href: '/favicon.ico',
         },
+        {
+            once: true,
+            hid: 'font-inter',
+            rel: 'preload',
+            href: '/fonts/inter.min.css',
+            as: 'style',
+        },
     ]
     , script = []
     , noscript = [
         {
             once: true,
-            hid: 'noscript-fonts',
+            hid: 'noscript-font-inter',
             innerHTML: '<link rel="stylesheet" href="/fonts/inter.min.css">',
         },
     ]
@@ -58,8 +65,10 @@ const ENV = dotenv
     ]
     , buildModules = [
         '@nuxtjs/dotenv',
-        '@nuxtjs/sitemap',
+        'nuxt-webfontloader',
+        'nuxt-fontawesome',
         'nuxt-compress',
+        '@nuxtjs/sitemap',
     ]
 ;
 
@@ -138,7 +147,7 @@ export default {
     modern: true,
     css: [
         'modern-normalize/modern-normalize.css',
-        '~assets/style.scss',
+        '~assets/main.scss',
     ],
     srcDir: __dirname,
     rootDir: resolve(
@@ -162,7 +171,17 @@ export default {
     /*
      * Plugins
      */
-    plugins: [ '~/plugins/jsonld' ],
+    plugins: [
+        '~/plugins/jsonld',
+        '~/plugins/filters',
+        '~/plugins/share.client',
+    ],
+    /*
+     ** Customize the progress bar color
+     */
+    loading: {
+        height: '6px',
+    },
     /*
      * Modules
      */
@@ -187,6 +206,26 @@ export default {
     },
     icon: {
         accessibleIcons: false,
+    },
+    webfontloader: {
+        custom: {
+            families: [ 'Inter' ],
+            urls: [ '/fonts/inter.min.css' ],
+        },
+    },
+    fontawesome: {
+        imports: [
+            {
+                set: '@fortawesome/free-brands-svg-icons',
+                icons: [
+                    'faFacebook',
+                    'faTwitter',
+                    'faWhatsapp',
+                    'faLinkedin',
+                    'faTelegram',
+                ],
+            },
+        ],
     },
     /*
      * buildModules
