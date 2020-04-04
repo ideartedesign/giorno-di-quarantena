@@ -17,6 +17,7 @@
     position: relative;
     display: flex;
     width: var( --width );
+    min-width: 100px;
     height: var( --height );
     overflow: hidden;
     font-size: var( --size );
