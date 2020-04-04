@@ -69,11 +69,15 @@
         flex: 0 1 100%;
         flex-direction: column;
         justify-content: center;
-        margin-bottom: -8px;
+        align-items: center;
+
+        margin-top: 8px;
+        margin-bottom: 32px;
 
         @media screen and ( min-width: 720px ) {
 
             flex-direction: row;
+            margin: 0 auto;
 
         }
 
