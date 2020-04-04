@@ -69,7 +69,7 @@
 
             <client-only>
                 <social-sharing
-                    :url="$route.path"
+                    :url="url"
                     :title="title"
                     :description="description"
                     :hashtags="keywords"
