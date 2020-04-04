@@ -45,10 +45,28 @@
 
     &__meta {
 
+        flex-direction: column;
+
+        @media screen and ( min-width: 600px ) {
+
+            flex-direction: row;
+
+        }
+
         &__col {
 
-            flex-basis: 33%;
-            width: 33%;
+            display: flex;
+            flex: 1 1 100%;
+            flex-direction: row;
+            width: 100%;
+
+            @media screen and ( min-width: 600px ) {
+
+                flex-basis: 1 1 33%;
+                flex-direction: column;
+                width: 33%;
+
+            }
 
             > * {
 
@@ -59,13 +77,19 @@
             > h6 {
 
                 font-weight: bold;
-                
+
             }
 
             > p {
 
-                min-height: 36px;
-                
+                padding: 0 8px;
+
+                @media screen and ( min-width: 600px ) {
+
+                    padding: 0;
+
+                }
+
             }
 
         }
