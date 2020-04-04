@@ -1,0 +1,114 @@
+.country-item {
+
+    $color-box-shadow-start: var( --color-box-shadow-start, #fff );
+    $color-box-shadow-end: var( --color-box-shadow-end, rgba( 174, 174, 192, .4 ) );
+
+    $thickness: 16px;
+    $prefix: &;
+    $transition: all var( --duration, .5s ) var( --timing, ease );
+
+    margin: 16px 0;
+    padding: 8px 24px;
+    overflow: hidden;
+    text-align: left;
+    border-radius: 16px;
+    box-shadow: ( - $thickness ) ( - $thickness ) ( $thickness * 2 ) 0 $color-box-shadow-start, $thickness $thickness ( $thickness * 2 ) 0 $color-box-shadow-end;
+    transition: var( --transition, $transition );
+
+    &__header,
+    &__footer,
+    &__meta {
+
+        display: flex;
+        flex: 1 1 100%;
+        flex-direction: row;
+        align-items: center;
+        padding: 12px 0;
+
+    }
+
+    &__header {
+
+        &__flag + &__title {
+
+            margin-left: 16px;
+
+        }
+
+        &__title {
+
+            line-height: 1;
+
+        }
+
+    }
+
+    &__meta {
+
+        &__col {
+
+            flex-basis: 33%;
+            width: 33%;
+
+            > * {
+
+                margin: 8px 0;
+
+            }
+
+            > p {
+
+                min-height: 36px;
+                
+            }
+
+        }
+
+    }
+
+    &__badge {
+
+        padding: 3px;
+        color: #fff;
+        border-radius: 6px;
+
+    }
+
+    &__footer {
+
+        justify-content: space-between;
+
+    }
+
+    &--text {
+
+        &-good {
+
+            color: #e74c3c;
+
+        }
+
+        &-bad {
+
+            color: #27ae60;
+
+        }
+
+    }
+    &--bg {
+
+        &-good {
+
+            background-color: #27ae60;
+
+        }
+
+        &-bad {
+
+            background-color: #e74c3c;
+
+        }
+
+    }
+
+}
