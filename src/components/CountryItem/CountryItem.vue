@@ -4,7 +4,7 @@
         <header class="country-item__header">
                 
             <img
-                v-if="item.countryInfo.flag"
+                v-if="item.countryInfo && item.countryInfo.flag"
                 :src="item.countryInfo.flag"
                 :alt="`Flag of ${ item.country }`"
                 width="36"
@@ -68,10 +68,10 @@
             </small>
 
             <small v-if="item.daysWithoutDeaths > 1 && item.daysWithoutDeaths < 7 && item.todayDeaths === 0" class="country-item__badge  country-item--bg-good">
-                Nessuna morte segnalata negli scorsi {{ item.daysWithoutDeaths }} giorni!
+                Nessun decesso negli scorsi {{ item.daysWithoutDeaths }} giorni!
             </small>
             <small v-else-if="item.todayDeaths === 0 && item.todayCases > 0" class="country-item__badge  country-item--bg-good">
-                Nessun deceduto registrato oggi!
+                Nessun decesso registrato oggi!
             </small>
 
         </footer>
