@@ -67,14 +67,13 @@
 <style scoped lang="scss">
     .page {
 
-        overflow: hidden;
-
         iframe {
 
+            position: relative;
             width: 100%;
             height: 100%;
             min-height: 560px;
-            border-radius: 6px;
+            border-radius: 16px;
             pointer-events: none;
 
         }
