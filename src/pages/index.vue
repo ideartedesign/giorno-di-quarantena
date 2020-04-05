@@ -1,32 +1,33 @@
 <template>
     <section class="page container">
 
-        <countdown
-            :start-date="START_DATE"
-            :end-date="END_DATE"
-            disabled
-            distance-from-start
-            show-percentage
-            hide-days-label
-            hide-days-separator
-            hide-hours
-            hide-minutes
-            hide-seconds
-            type="neomorphism"
-        >
-            <template #title>
-                <h1 v-text="title" />
-            </template>
-        </countdown>
-
-        <div class="margin-top--48">
+        <div class="margin--tb-32">
             <countdown
-                v-model="value"
-                :timezone="timezone"
                 :start-date="START_DATE"
                 :end-date="END_DATE"
-            />
+                disabled
+                distance-from-start
+                show-percentage
+                show-percentage-value
+                hide-days-label
+                hide-days-separator
+                hide-hours
+                hide-minutes
+                hide-seconds
+                type="neomorphism"
+            >
+                <template #title>
+                    <h1 v-text="title" />
+                </template>
+            </countdown>
         </div>
+
+        <countdown
+            v-model="value"
+            :timezone="timezone"
+            :start-date="START_DATE"
+            :end-date="END_DATE"
+        />
 
     </section>
 </template>
