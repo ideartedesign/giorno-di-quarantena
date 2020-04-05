@@ -9,11 +9,13 @@
                 Recuperati: {{ globalData.recovered | number }} &#8593; ({{ globalData.recoveredPercent | number }}%)
             </h3>
             <h6 v-if="globalData.updated" class="date">
-                <small>
-                    <em>
-                        <strong>Aggiornato al</strong>: {{ globalData.updated | date }}
-                    </em>
-                </small>
+                <time :datetime="$options.filters.date( globalData.updated )">
+                    <small>
+                        <em>
+                            <strong>Aggiornato al</strong>: {{ globalData.updated | date }}
+                        </em>
+                    </small>
+                </time>
             </h6>
         </div>
 
@@ -421,8 +423,6 @@
 <style scoped lang="scss">
     .page {
 
-        padding-top: 32px;
-
         .title {
 
             font-weight: bolder;
@@ -435,7 +435,7 @@
             color: #27ae60;
             font-weight: bold;
             font-size: 25px;
-            line-height: 1.5;
+            line-height: 2;
 
         }
 
