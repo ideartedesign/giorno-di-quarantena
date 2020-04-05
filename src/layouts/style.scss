@@ -67,19 +67,12 @@
 
         display: flex;
         flex: 0 1 100%;
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
         align-items: center;
         justify-content: center;
 
-        margin-top: 8px;
-        margin-bottom: 32px;
-
-        @media screen and ( min-width: 720px ) {
-
-            flex-direction: row;
-            margin: 0 auto;
-
-        }
+        margin: 8px auto;
 
     }
 
