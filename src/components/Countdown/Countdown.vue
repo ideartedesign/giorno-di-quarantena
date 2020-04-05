@@ -13,10 +13,10 @@
             >
                 <svg viewBox="0 0 100 100">
                     <path
+                        :stroke-dasharray="( 296 * percentage ) / 100"
                         d="M 50,50 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94"
                         fill-opacity="0"
                         stroke-dashoffset="0"
-                        :stroke-dasharray="( 296 * percentage ) / 100"
                     />
                 </svg>
             </div>
@@ -203,6 +203,11 @@
 
                     </slot>
                 </time>
+
+                <footer v-if="showPercentageValue" class="countdown__footer">
+                    <small v-text="percentage + '%'" />
+                </footer>
+
             </div>
 
         </div>
@@ -295,6 +300,10 @@
                 default: false,
             },
             showPercentage: {
+                type: Boolean,
+                default: false,
+            },
+            showPercentageValue: {
                 type: Boolean,
                 default: false,
             },
