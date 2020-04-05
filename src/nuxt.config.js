@@ -61,6 +61,7 @@ const ENV = dotenv
     , __dangerouslyDisableSanitizersByTagID = {}
     , modules = [
         '@luxdamore/nuxt-canvas-sketch',
+        '@nuxtjs/axios',
         '@nuxtjs/pwa',
     ]
     , buildModules = [
@@ -226,6 +227,9 @@ export default {
                 ],
             },
         ],
+    },
+    axios: {
+        https: true,
     },
     /*
      * buildModules

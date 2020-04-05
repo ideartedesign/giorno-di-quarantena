@@ -27,16 +27,7 @@
                 class="btn margin padding outline rounded"
                 exact
             >
-                <h3>home</h3>
-            </nuxt-link>
-
-            <nuxt-link
-                to="/mappa"
-                title="Mappa"
-                class="btn margin padding outline rounded"
-                exact
-            >
-                <h3>mappa</h3>
+                <h3>Home</h3>
             </nuxt-link>
 
             <nuxt-link
@@ -45,7 +36,25 @@
                 class="btn margin padding outline rounded"
                 exact
             >
-                <h3>pensa positivo</h3>
+                <h3>#IoRestoPositivo</h3>
+            </nuxt-link>
+
+            <nuxt-link
+                to="/notizie"
+                title="Notizie"
+                class="btn margin padding outline rounded"
+                exact
+            >
+                <h3>Notizie</h3>
+            </nuxt-link>
+
+            <nuxt-link
+                to="/mappa"
+                title="Mappa"
+                class="btn margin padding outline rounded"
+                exact
+            >
+                <h3>Mappa</h3>
             </nuxt-link>
 
         </div>
