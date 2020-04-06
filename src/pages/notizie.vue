@@ -50,8 +50,8 @@
                 const totalArticles = [
                           {
                               urlToImage: 'https://www.google.com/covid19/mobility/static/image.png',
-                              title: 'Scopri come la tua community si muove in modo diverso a causa di COVID-19',
-                              description: ' Google Maps potrebbe essere utile in quanto prendono decisioni critiche per combattere COVID-19. Queste relazioni sulla mobilità della comunità hanno lo scopo di fornire spunti su ciò che è cambiato in risposta alle politiche volte a combattere COVID-19. I rapporti tracciano nel tempo le tendenze di movimento per area geografica, attraverso diverse categorie di luoghi come negozi e attività ricreative, generi alimentari e farmacie, parchi, stazioni di transito, luoghi di lavoro e residenziali.',
+                              title: 'Scopri come la tua community si muove in modo diverso a causa del COVID-19',
+                              description: ' Google Maps potrebbe essere uno strumento utile per prendere decisioni critiche per affrontare il virus: queste relazioni sulla mobilità della comunità hanno lo scopo di fornire spunti su ciò che è cambiato in risposta alle politiche volte a combattere COVID-19. I rapporti tracciano nel tempo le tendenze di movimento per area geografica, attraverso diverse categorie di luoghi come negozi e attività ricreative, generi alimentari e farmacie, parchi, stazioni di transito, luoghi di lavoro e residenziali.',
                               publishedAt: '2020-03-29',
                               url: 'https://www.gstatic.com/covid19/mobility/2020-03-29_IT_Mobility_Report_en.pdf',
                           },
