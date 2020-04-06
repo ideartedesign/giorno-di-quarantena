@@ -21,6 +21,12 @@
 
         <div v-if="countriesData.length" class="countries">
 
+            <country-item
+                v-for="country in countriesData"
+                :key="country.country"
+                :item="country"
+            />
+
             <p class="margin">
                 <small>
                     <em>
@@ -28,12 +34,6 @@
                     </em>
                 </small>
             </p>
-
-            <country-item
-                v-for="country in countriesData"
-                :key="country.country"
-                :item="country"
-            />
 
         </div>
 
@@ -427,8 +427,13 @@
                         {
                             '@type': 'ListItem',
                             position: index + 1,
-                            name: item.country,
                             image: item.countryInfo && item.countryInfo.flag,
+                            name: item.country,
+                            descriptions: `Recuperate ${
+                                this.$options.filters.number(
+                                    item.recovered
+                                )
+                            } persone dal coronavirus`,
                         }
                     )
                 ),
@@ -456,10 +461,10 @@
 
         .subtitle {
 
+            margin: 8px auto;
             color: #27ae60;
             font-weight: bold;
             font-size: 25px;
-            line-height: 2;
 
         }
 
