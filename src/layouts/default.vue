@@ -145,7 +145,8 @@
                     <h6 class="social-title">
                         <small>
                             <em>
-                                condividi (non il virus)
+                                condividi (non il virus)<br>
+                                #iorestoacasa #iorestopositivo
                             </em>
                         </small>
                     </h6>
