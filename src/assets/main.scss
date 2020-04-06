@@ -227,7 +227,14 @@ time {
 
 .margin {
 
-    margin: 0 8px 8px;
+    margin: 0 4px 8px;
+
+    @media screen and ( min-width: 380px ) {
+
+        margin-right: 8px;
+        margin-left: 8px;
+
+    }
 
     &-auto {
 
@@ -245,7 +252,14 @@ time {
 
 .padding {
 
-    padding: 2px 8px;
+    padding: 2px 4px;
+
+    @media screen and ( min-width: 380px ) {
+
+        padding-right: 8px;
+        padding-left: 8px;
+
+    }
 
 }
 

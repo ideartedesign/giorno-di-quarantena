@@ -105,15 +105,22 @@
     .menu {
 
         position: sticky; // stylelint-disable-line
-        top: 16px;
+        top: 8px;
+        z-index: 2;
         display: flex;
         flex: 0 1 100%;
         flex-direction: row;
         flex-wrap: wrap;
         align-items: center;
         justify-content: center;
-
         margin: 8px auto;
+
+        @media screen and ( min-width: 380px ) {
+
+            top: 16px;
+
+        }
+
 
     }
 
