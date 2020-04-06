@@ -12,15 +12,15 @@
         </div>
 
         <div class="actions">
-            <h1>{{ totalResults }} Articoli</h1>
+            <h1>{{ totalResults }} Articoli e notizie</h1>
             <a
                 title="Powered by News API"
-                class="btn margin padding outline rounded"
+                class="btn margin padding"
                 rel="noopener"
                 href="https://newsapi.org/"
                 target="_blank"
             >
-                scopri di più >
+                Powered by News API
             </a>
         </div>
 
@@ -57,7 +57,7 @@
                           },
                       ]
                       // Current country data
-                      , { articles } = await $axios.$get(
+                      , { articles: top } = await $axios.$get(
                           '/top-headlines',
                           {
                               params: {
@@ -71,10 +71,25 @@
                               },
                           }
                       )
+                      , { articles: everything } = await $axios.$get(
+                          '/everything',
+                          {
+                              params: {
+                                  q: 'COVID',
+                                  from: '2020-04-01',
+                                  sortBy: 'publishedAt',
+                                  language: 'it',
+                                  apiKey: process.env.NEWS_API,
+                                  pageSize: 10,
+                                  page: 1,
+                              },
+                          }
+                      )
                 ;
 
                 totalArticles.push(
-                    ... ( articles || [] )
+                    ... ( top || [] ),
+                    ... ( everything || [] ),
                 );
 
                 return {
@@ -100,7 +115,7 @@
         head() {
 
             return {
-                titleTemplate: 'Notizie - %s',
+                titleTemplate: 'Articoli e notizie - %s',
                 link: [
                     {
                         once: true,
