@@ -67,13 +67,15 @@
 <style scoped lang="scss">
     .page {
 
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+
         iframe {
 
             position: relative;
             width: 100%;
             height: 100%;
-            min-height: 560px;
-            border-radius: 16px;
+            min-height: 530px;
             pointer-events: none;
 
         }
