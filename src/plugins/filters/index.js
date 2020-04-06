@@ -1,6 +1,6 @@
 import Vue from 'vue';
-import number from './filters/number';
-import date from './filters/date';
+import number from './number';
+import date from './date';
 
 Vue.filter(
     number.name,
