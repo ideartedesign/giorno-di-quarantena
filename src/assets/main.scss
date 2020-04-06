@@ -163,8 +163,32 @@ p {
 
 h1 {
 
-    margin: 1rem auto;
-    font-size: 1rem;
+    margin: .5rem auto;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+
+    @media screen and ( min-width: 380px ) {
+
+        margin: 1 auto;
+        font-size: 14px;
+        line-height: 17px;
+        letter-spacing: 2px;
+
+    }
+
+}
+
+address {
+
+    font-style: normal;
+
+}
+
+time {
+
+    display: inline-block;
 
 }
 

@@ -10,8 +10,13 @@
         flex: 1 1 100%;
         flex-direction: column;
         width: 100%;
-        padding: 16px;
         text-align: center;
+
+        > .page {
+
+            padding: 16px;
+
+        }
 
     }
 
@@ -19,8 +24,9 @@
     footer {
 
         display: flex;
-        flex: 0 1 100%;
+        flex: 1 1 100%;
         flex-direction: row;
+        flex-wrap: wrap;
         align-items: center;
         justify-content: space-between;
         width: 100%;
@@ -34,6 +40,39 @@
         @media screen and ( min-width: 720px ) {
 
             padding: 48px;
+
+            > p {
+
+                min-width: 233px;
+
+                &:first-child {
+
+                    text-align: left;
+
+                }
+
+                &:last-child {
+
+                    text-align: right;
+
+                }
+
+            }
+
+        }
+
+    }
+
+    @media screen and ( min-width: 500px ) {
+
+        header {
+
+            > .website-title,
+            > .day-night-toggle {
+
+                min-width: 165px;
+
+            }
 
         }
 
@@ -78,6 +117,7 @@
 
     .social-container {
 
+        min-width: 210px;
         font-size: 1.5rem;
 
         ::v-deep .svg-inline--fa {

@@ -37,7 +37,22 @@
 
         &__title {
 
+            flex: 1;
             line-height: 1;
+
+        }
+
+        &__updated {
+
+            display: none;
+            visibility: hidden;
+            opacity: 0;
+
+            @media screen and ( min-width: 600px ) {
+
+                display: inline-block;
+
+            }
 
         }
 

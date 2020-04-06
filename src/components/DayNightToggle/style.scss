@@ -19,6 +19,8 @@
     width: var( --width );
     min-width: 100px;
     height: var( --height );
+    margin-right: 0;
+    margin-left: auto;
     overflow: hidden;
     font-size: var( --size );
     background-image: var( --background-color-day );

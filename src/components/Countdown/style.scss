@@ -2,7 +2,7 @@
 
     $color-box-shadow-start: var( --color-box-shadow-start, #fff );
     $color-box-shadow-end: var( --color-box-shadow-end, #242529 );
-    $color-background: var( --color-background, rgba( #242529, .4 ) );
+    $color-background: var( --color-text, #242529 );
 
     $progress-thickness: 16px;
     $prefix: &;
@@ -50,14 +50,15 @@
 
             margin: -2px;
             transition: var( --transition, $transition );
-            fill: $color-background;
+            fill: transparent;
+            fill-opacity: 0;
             stroke: $color-box-shadow-start;
             stroke-width: $progress-thickness / 4;
             stroke-dashoffset: 0;
 
             @media screen and ( min-width: 720px ) {
 
-                margin: -7px;
+                margin: -6px;
 
             }
 
@@ -121,8 +122,17 @@
 
     &__footer {
 
+        position: absolute;
+        bottom: 5%;
+        left: 0;
+        width: 100%;
         font-weight: lighter;
-        font-size: 1rem;
+
+        @media screen and ( min-width: 380px ) {
+
+            bottom: 15%;
+
+        }
 
     }
 
@@ -138,16 +148,22 @@
                 align-items: center;
                 justify-content: center;
 
-                min-width: 270px;
-                min-height: 270px;
+                min-width: 250px;
+                min-height: 250px;
                 margin: 0 auto;
                 border-radius: 9999px;
                 box-shadow: ( - $progress-thickness ) ( - $progress-thickness ) ( $progress-thickness * 2 ) 0 $color-box-shadow-start, $progress-thickness $progress-thickness ( $progress-thickness * 2 ) 0 $color-box-shadow-end;
 
+                @media screen and ( min-width: 380px ) {
+
+                    min-width: 300px;
+                    min-height: 300px;
+
+                }
                 @media screen and ( min-width: 720px ) {
 
-                    min-width: 400px;
-                    min-height: 400px;
+                    min-width: 380px;
+                    min-height: 380px;
 
                 }
 
