@@ -44,6 +44,22 @@ const ENV = dotenv
         },
         {
             once: true,
+            hid: 'font-inter-woff',
+            rel: 'preload',
+            href: '/fonts/Inter-roman.var.woff',
+            type: 'font/woff',
+            as: 'font',
+        },
+        {
+            once: true,
+            hid: 'font-inter-woff2',
+            rel: 'preload',
+            href: '/fonts/Inter-roman.var.woff2',
+            type: 'font/woff2',
+            as: 'font',
+        },
+        {
+            once: true,
             hid: 'font-inter',
             rel: 'preload',
             href: '/fonts/inter.min.css',
