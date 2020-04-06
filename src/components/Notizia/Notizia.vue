@@ -27,12 +27,25 @@
 
         <footer v-if="item.publishedAt" class="notizia__footer">
 
-            <time v-if="item.publishedAt" :datetime="$options.filters.date( item.publishedAt )">
-                <small
-                    class="notizia__badge notizia--bg-info"
-                    v-text="$options.filters.date( item.publishedAt )"
+            <div class="notizia__meta">
+
+                <i
+                    v-if="item.type"
+                    title="Notizia verificata"
+                    :class="{
+                        [ `notizia__badge--type-${ item.type }` ]: item.type,
+                    }"
+                    class="notizia__badge"
                 />
-            </time>
+
+                <time v-if="item.publishedAt" :datetime="$options.filters.date( item.publishedAt )">
+                    <small
+                        class="notizia__date"
+                        v-text="$options.filters.date( item.publishedAt )"
+                    />
+                </time>
+
+            </div>
 
             <a
                 v-if="item.url"

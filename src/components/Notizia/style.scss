@@ -1,5 +1,6 @@
 .notizia {
 
+    $color-background: var( --color-text, #fff );
     $color-box-shadow-start: var( --color-box-shadow-start, #fff );
     $color-box-shadow-end: var( --color-box-shadow-end, #242529 );
 
@@ -89,6 +90,34 @@
     &__title {
 
         font-size: 1.18rem;
+
+    }
+
+    &__badge {
+
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        margin-right: 8px;
+        vertical-align: middle;
+        background-color: $color-background;
+        border-radius: 50%;
+
+        &--type {
+
+            &-highlight {
+
+                background-color: #27ae60;
+
+            }
+
+            &-top {
+
+                background-color: #2980b9;
+
+            }
+
+        }
 
     }
 
