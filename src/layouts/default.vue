@@ -6,16 +6,19 @@
             <nuxt-link
                 :title="title"
                 to="/"
+                class="website-title"
                 exact
             >
                 <h4>#giornodiquarantena</h4>
             </nuxt-link>
             
-            <day-night-toggle
-                v-model="isDarkTheme"
-                title="Theme toggle"
-                type="neomorphism"
-            />
+            <div class="day-night-toggle">
+                <day-night-toggle
+                    v-model="isDarkTheme"
+                    title="Theme toggle"
+                    type="neomorphism"
+                />
+            </div>
 
         </header>
 
@@ -27,7 +30,7 @@
                 class="btn margin padding outline rounded"
                 exact
             >
-                <h3>Home</h3>
+                <h3>Countdown</h3>
             </nuxt-link>
 
             <nuxt-link
@@ -65,85 +68,89 @@
 
         <footer>
 
-            <span>
+            <p>
                 © 2020
                 <nuxt-link
                     to="/"
                     title="giornodiquarantena.it"
                     exact
                 >
-                    <h4>giornodiquarantena.it</h4>
+                    giornodiquarantena.it
                 </nuxt-link>
-            </span>
-
+            </p>
+            
             <client-only>
-                <social-sharing
-                    :url="url"
-                    :title="title"
-                    :description="description"
-                    :hashtags="keywords"
-                    :quote="description"
-                    twitter-user="luxdamore"
-                    inline-template
-                >
-                    <div class="social-container">
+                <div class="social-container">
+                    
+                    <social-sharing
+                        :url="url"
+                        :title="title"
+                        :description="description"
+                        :hashtags="keywords"
+                        :quote="description"
+                        twitter-user="luxdamore"
+                        inline-template
+                    >
+                        <div class="social-icons">
 
-                        <network network="facebook">
-                            <button
-                                type="button"
-                                class="btn icon margin rounded"
-                                title="Condividi su Facebook"
-                            >
-                                <font-awesome-icon :icon="[ 'fab', 'facebook' ]" />
-                            </button>
-                        </network>
-                        <network network="linkedin">
-                            <button
-                                type="button"
-                                class="btn icon margin rounded"
-                                title="Condividi su Linkedin"
-                            >
-                                <font-awesome-icon :icon="[ 'fab', 'linkedin' ]" />
-                            </button>
-                        </network>
-                        <network network="telegram">
-                            <button
-                                type="button"
-                                class="btn icon margin rounded"
-                                title="Condividi su Telegram"
-                            >
-                                <font-awesome-icon :icon="[ 'fab', 'telegram' ]" />
-                            </button>
-                        </network>
-                        <network network="twitter">
-                            <button
-                                type="button"
-                                class="btn icon margin rounded"
-                                title="Condividi su Twitter"
-                            >
-                                <font-awesome-icon :icon="[ 'fab', 'twitter' ]" />
-                            </button>
-                        </network>
-                        <network network="whatsapp">
-                            <button
-                                type="button"
-                                class="btn icon margin rounded"
-                                title="Condividi su WhatsApp"
-                            >
-                                <font-awesome-icon :icon="[ 'fab', 'whatsapp' ]" />
-                            </button>
-                        </network>
+                            <network network="facebook">
+                                <button
+                                    type="button"
+                                    class="btn icon margin rounded"
+                                    title="Condividi su Facebook"
+                                >
+                                    <font-awesome-icon :icon="[ 'fab', 'facebook' ]" />
+                                </button>
+                            </network>
+                            <network network="linkedin">
+                                <button
+                                    type="button"
+                                    class="btn icon margin rounded"
+                                    title="Condividi su Linkedin"
+                                >
+                                    <font-awesome-icon :icon="[ 'fab', 'linkedin' ]" />
+                                </button>
+                            </network>
+                            <network network="telegram">
+                                <button
+                                    type="button"
+                                    class="btn icon margin rounded"
+                                    title="Condividi su Telegram"
+                                >
+                                    <font-awesome-icon :icon="[ 'fab', 'telegram' ]" />
+                                </button>
+                            </network>
+                            <network network="twitter">
+                                <button
+                                    type="button"
+                                    class="btn icon margin rounded"
+                                    title="Condividi su Twitter"
+                                >
+                                    <font-awesome-icon :icon="[ 'fab', 'twitter' ]" />
+                                </button>
+                            </network>
+                            <network network="whatsapp">
+                                <button
+                                    type="button"
+                                    class="btn icon margin rounded"
+                                    title="Condividi su WhatsApp"
+                                >
+                                    <font-awesome-icon :icon="[ 'fab', 'whatsapp' ]" />
+                                </button>
+                            </network>
 
-                        <h6 class="social-title">
-                            <small>
-                                <em>
-                                    condividi (non il virus)
-                                </em>
-                            </small>
-                        </h6>
+                        </div>
+                    </social-sharing>
 
-                    </div>
-                </social-sharing>
+                    <h6 class="social-title">
+                        <small>
+                            <em>
+                                condividi (non il virus)
+                            </em>
+                        </small>
+                    </h6>
+
+                </div>
             </client-only>
 
             <p>
