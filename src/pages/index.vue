@@ -7,7 +7,6 @@
                 :end-date="END_DATE"
                 disabled
                 distance-from-start
-                show-percentage
                 show-percentage-value
                 hide-days-label
                 hide-days-separator
