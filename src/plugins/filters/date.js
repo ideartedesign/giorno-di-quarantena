@@ -12,7 +12,7 @@ export default {
         if( ! window.Intl || typeof window.Intl !== 'object' )
             return value;
 
-        if( ! value || typeof value === 'object' || ! lang )
+        if( ! value || ! lang )
             return value;
 
         const v = value instanceof Date
