@@ -2,17 +2,17 @@ export default {
     name: 'date',
     filter: (
         value,
-        lang = 'it',
+        lang = 'it-IT',
         config = {},
     ) => {
 
         if( typeof window === 'undefined' )
             return;
 
-        if( ! value || typeof value === 'object' || ! lang )
+        if( ! window.Intl || typeof window.Intl !== 'object' )
             return value;
 
-        if( ! window.Intl || typeof window.Intl !== 'object' )
+        if( ! value || typeof value === 'object' || ! lang )
             return value;
 
         const v = value instanceof Date

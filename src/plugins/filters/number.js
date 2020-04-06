@@ -2,7 +2,7 @@ export default {
     name: 'number',
     filter: (
         value,
-        lang = 'it',
+        lang = 'it-IT',
         config = {},
     ) => {
 
