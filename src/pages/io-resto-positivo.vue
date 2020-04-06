@@ -411,6 +411,30 @@
             };
         
         },
+        jsonld() {
+
+            if( ! this.countriesData.length )
+                return null;
+
+            return {
+                '@context': 'http://schema.org',
+                '@type': 'ItemList',
+                itemListElement: this.countriesData.map(
+                    (
+                        item,
+                        index
+                    ) => (
+                        {
+                            '@type': 'ListItem',
+                            position: index + 1,
+                            name: item.country,
+                            image: item.countryInfo && item.countryInfo.flag,
+                        }
+                    )
+                ),
+            };
+
+        },
     };
 </script>
 
