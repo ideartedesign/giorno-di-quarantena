@@ -104,6 +104,8 @@
 
     .menu {
 
+        position: sticky; // stylelint-disable-line
+        top: 16px;
         display: flex;
         flex: 0 1 100%;
         flex-direction: row;
