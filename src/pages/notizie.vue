@@ -57,10 +57,7 @@
                           },
                       ]
                       // Current country data
-                      , {
-                          totalResults,
-                          articles, 
-                      } = await $axios.$get(
+                      , { articles } = await $axios.$get(
                           '/top-headlines',
                           {
                               params: {
@@ -81,8 +78,7 @@
                 );
 
                 return {
-                    totalResults,
-                    articles,
+                    totalResults: totalArticles.length,
                     totalArticles,
                 };
             
@@ -98,7 +94,6 @@
         data: () => (
             {
                 totalResults: 0,
-                articles: [],
                 totalArticles: [],
             }
         ),
