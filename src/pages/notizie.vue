@@ -73,7 +73,7 @@
                                   q: 'coronavirus',
                                   country: 'it',
                                   apiKey: process.env.NEWS_API,
-                                  pageSize: 15,
+                                  pageSize: 20,
                                   page: 1,
                               },
                           }
@@ -85,10 +85,9 @@
                                   qInTitle: 'covid',
                                   from: '2020-04-01',
                                   sortBy: 'relevancy',
-                                  category: 'health',
                                   language: 'it',
                                   apiKey: process.env.NEWS_API,
-                                  pageSize: 10,
+                                  pageSize: 5,
                                   page: 1,
                               },
                           }
