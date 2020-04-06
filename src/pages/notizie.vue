@@ -70,12 +70,10 @@
                           '/top-headlines',
                           {
                               params: {
-                                  q: 'COVID',
-                                  from: '2020-04-01',
-                                  sortBy: 'publishedAt',
+                                  q: 'coronavirus',
                                   country: 'it',
                                   apiKey: process.env.NEWS_API,
-                                  pageSize: 20,
+                                  pageSize: 15,
                                   page: 1,
                               },
                           }
@@ -84,9 +82,10 @@
                           '/everything',
                           {
                               params: {
-                                  q: 'COVID',
+                                  qInTitle: 'covid',
                                   from: '2020-04-01',
-                                  sortBy: 'publishedAt',
+                                  sortBy: 'relevancy',
+                                  category: 'health',
                                   language: 'it',
                                   apiKey: process.env.NEWS_API,
                                   pageSize: 10,
