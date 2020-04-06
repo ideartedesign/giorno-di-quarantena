@@ -114,6 +114,8 @@
         align-items: center;
         justify-content: center;
         margin: 8px auto;
+        background-color: var( --color-background, #f0f0f3 );
+        transition: all var( --duration, .5s ) var( --timing, ease );
 
         @media screen and ( min-width: 380px ) {
 

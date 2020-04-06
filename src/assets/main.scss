@@ -65,7 +65,7 @@ body {
         "Apple Color Emoji",
         "Segoe UI Emoji";
     background-color: var( --color-background, #{$color-background} );
-    transition: color var( --duration, .5s ) var( --timing, ease ), background-color var( --duration, .5s ) var( --timing, ease );
+    transition: color var( --duration, .36s ) var( --timing, ease ), background-color var( --duration, .5s ) var( --timing, ease );
 
     @supports ( font-variation-settings: normal ) {
 
