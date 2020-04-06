@@ -16,8 +16,19 @@
             <h2
                 v-if="item.country"
                 class="country-item__header__title"
-                v-text="item.country"
-            />
+            >
+                <address v-text="item.country" />
+            </h2>
+
+            <time
+                v-if="item.updated"
+                :datetime="$options.filters.date( item.updated )"
+                class="country-item__header__updated"
+            >
+                <em>
+                    <small v-text="`Aggiornato al ${ $options.filters.date( item.updated ) }`" />
+                </em>
+            </time>
 
         </header>
 
