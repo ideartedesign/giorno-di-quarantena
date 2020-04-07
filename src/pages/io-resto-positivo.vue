@@ -118,6 +118,9 @@
 
                               const arr = [];
 
+                              if( ! country?.timeline?.deaths )
+                                  return;
+
                               for( const key in country.timeline.deaths ) {
 
                                   if(
@@ -156,13 +159,17 @@
 
                       countryData.forEach(
                           (
-                              country, i 
+                              country,
+                              i 
                           ) => {
 
                               let daysWithoutDeaths = 0
                                   , recoveredYesterday
                                   , recoveredDifference
                               ;
+
+                              if( ! historicalData || ! historicalData[ i ] )
+                                  return;
 
                               historicalData[ i ].reverse().forEach(
                                   (
@@ -178,13 +185,16 @@
                               historicalAll.forEach(
                                   c => {
 
+                                      if( ! country.country || ! c.country )
+                                          return;
+
                                       if( country.country.toUpperCase() === c.country.toUpperCase() ) {
 
                                           const deaths = objValues(
-                                                    c.timeline.deaths 
+                                                    c?.timeline?.deaths ?? []
                                                 )[ 
                                                     objValues(
-                                                        c.timeline.deaths 
+                                                        c.timeline.deaths ?? []
                                                     ).length - 1 
                                                 ]
                                                 , cases = objValues(
@@ -307,18 +317,18 @@
                                   const recoveredPercent = getPercent(
                                             item.recovered,
                                             item.cases,
-                                            item.deaths
+                                            item.deaths || 0
                                         )
                                         , criticalPercent = getPercent(
                                             item.critical,
                                             item.cases,
-                                            item.deaths
+                                            item.deaths || 0
                                         )
                                         , nonCriticalPercent = 100 - criticalPercent
                                         , activePercent = getPercent(
                                             item.active,
                                             item.cases,
-                                            item.deaths
+                                            item.deaths || 0
                                         )
                                   ;
 
