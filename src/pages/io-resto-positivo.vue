@@ -118,25 +118,27 @@
 
                               const arr = [];
 
-                              if( ! country?.timeline?.deaths )
-                                  return;
+                              if( country?.timeline?.deaths ) {
 
-                              for( const key in country.timeline.deaths ) {
+                                  for( const key in country.timeline.deaths ) {
 
-                                  if(
-                                      Object.prototype.hasOwnProperty.call(
-                                          country.timeline.deaths,
-                                          key
-                                      )
-                                  ) {
+                                      if(
+                                          Object.prototype.hasOwnProperty.call(
+                                              country.timeline.deaths,
+                                              key
+                                          )
+                                      ) {
 
-                                      arr.push(
-                                          country.timeline.deaths[ key ] 
-                                      );
+                                          arr.push(
+                                              country.timeline.deaths[ key ] 
+                                          );
 
-                                  }
+                                      }
         
+                                  }
+
                               }
+
                               countriesArray.push(
                                   arr.slice(
                                       arr.length - amountOfDays 
@@ -168,19 +170,20 @@
                                   , recoveredDifference
                               ;
 
-                              if( ! historicalData || ! historicalData[ i ] )
-                                  return;
+                              if( historicalData[ i ] ) {
 
-                              historicalData[ i ].reverse().forEach(
-                                  (
-                                      item, index 
-                                  ) => {
+                                  historicalData[ i ].reverse().forEach(
+                                      (
+                                          item, index 
+                                      ) => {
 
-                                      if( item === historicalData[ i ][ 0 ] && index !== 0 && item !== historicalData[ i ][ index + 1 ] ) 
-                                          daysWithoutDeaths = index + 1;
+                                          if( item === historicalData[ i ][ 0 ] && index !== 0 && item !== historicalData[ i ][ index + 1 ] ) 
+                                              daysWithoutDeaths = index + 1;
         
-                                  } 
-                              );
+                                      } 
+                                  );
+
+                              }
 
                               historicalAll.forEach(
                                   c => {
