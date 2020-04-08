@@ -50,6 +50,14 @@
                 const totalArticles = [
                           {
                               type: 'highlight',
+                              urlToImage: 'https://www.askanews.it/wp-content/uploads/2020/04/20200408_112455_18FE0EA7.jpg',
+                              title: 'Fine del lock down (confinamento) di Wuhan',
+                              description: `Dopo la revoca del confinamento obbligatorio, iniziata a mezzanotte ora locale, gli undici milioni di abitanti di Wuhan possono finalmente lasciare la città che ha visto nascere l'epidemia di coronavirus: sempre che, come ricorda il South China Post, siano in possesso del codice QR che garantisca la loro negatività e il non essere stati in contatto con dei contagiati.`,
+                              publishedAt: '2020-04-08',
+                              url: 'https://www.askanews.it/esteri/2020/04/08/che-succede-a-wuhan-senza-il-lockdown-e-cosa-%c3%a8-il-qr-di-negativit%c3%a0-top10_20200408_112508/',
+                          },
+                          {
+                              type: 'highlight',
                               urlToImage: 'https://www.google.com/covid19/mobility/static/image.png',
                               title: 'Scopri come la tua community si muove in modo diverso a causa del COVID-19',
                               description: 'Google Maps potrebbe essere uno strumento utile per prendere decisioni critiche per affrontare il virus: queste relazioni sulla mobilità della comunità hanno lo scopo di fornire spunti su ciò che è cambiato in risposta alle politiche volte a combattere COVID-19. I rapporti tracciano nel tempo le tendenze di movimento per area geografica, attraverso diverse categorie di luoghi come negozi e attività ricreative, generi alimentari e farmacie, parchi, stazioni di transito, luoghi di lavoro e residenziali.',
