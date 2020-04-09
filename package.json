@@ -82,7 +82,7 @@
         "@nuxtjs/eslint-config": "latest",
         "@vue/eslint-config-prettier": "latest",
         "babel-eslint": "latest",
-        "babel-jest": "^25.2.6",
+        "babel-jest": "^25.3.0",
         "codecov": "^3.6.2",
         "core-js": "^3.6.4",
         "eslint": "^6.8.0",
@@ -99,7 +99,7 @@
         "eslint-plugin-vue": "^6.1.2",
         "get-port": "^5.1.0",
         "husky": "^4.0.1",
-        "jest": "^25.2.7",
+        "jest": "^25.3.0",
         "jsdom": "^16.2.2",
         "modern-normalize": "^0.6.0",
         "node-sass": "^4.13.1",
@@ -114,12 +114,12 @@
         "request-promise-native": "latest",
         "sass-loader": "^8.0.2",
         "standard-version": "^7.1.0",
-        "stylelint": "^13.3.0",
+        "stylelint": "^13.3.1",
         "stylelint-config-rational-order": "^0.1.2",
         "stylelint-config-sass-guidelines": "^7.0.0",
         "stylelint-config-standard": "^20.0.0",
         "stylelint-no-unsupported-browser-features": "^4.0.0",
         "stylelint-order": "^4.0.0",
-        "stylelint-scss": "^3.14.0"
+        "stylelint-scss": "^3.16.1"
     }
 }
