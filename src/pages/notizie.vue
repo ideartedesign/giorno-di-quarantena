@@ -66,6 +66,14 @@
                           },
                           {
                               type: 'highlight',
+                              urlToImage: 'https://tvblog-static.tradingview.com/uploads/2020/03/covid_19_1.png',
+                              title: `Grafico riguardante l'impatto globale del nuovo coronavirus (il cui nome scientifico è SARS-CoV-2)`,
+                              description: `Lavoro da casa, traffico, velocità alla guida, polveri nell'aria, uso dei trasporti pubblici, compravendita.. Questo e altro in questa serie di diapositive che analizzano l'impatto che ha avuto il coronavirus a livello mondiale.`,
+                              publishedAt: '2020-04-10',
+                              url: 'https://docs.google.com/presentation/d/e/2PACX-1vTg9n7VMzj8RqHqPImPHY3oiVjDLFHJRfYJADZh51fddM0-3FBUr_CRDPBaZ_ezUCZikmEA8GibDJYU/pub?start=true&loop=true&delayms=5000',
+                          },
+                          {
+                              type: 'highlight',
                               urlToImage: 'https://www.epicentro.iss.it/coronavirus/img/coronavirus.jpg',
                               title: `L'epidemiologia per la sanità pubblica - Istituto Superiore di Sanità`,
                               description: 'Infografica giornaliera - Il rapporto sulle caratteristiche dei pazienti deceduti positivi a COVID-19 in Italia viene pubblicato su questa pagina ogni giorno',
@@ -125,13 +133,13 @@
                     totalResults: totalArticles.length,
                     totalArticles,
                 };
-            
+
             } catch( e ) {
 
                 console.error(
-                    e 
+                    e
                 );
-            
+
             }
 
         },
@@ -155,7 +163,7 @@
                     },
                 ],
             };
-        
+
         },
         jsonld() {
 
