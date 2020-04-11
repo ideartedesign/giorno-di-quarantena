@@ -17,12 +17,20 @@
                     </small>
                 </time>
             </h6>
+            <div class="search_container">
+                <input
+                    v-model="search"
+                    type="text"
+                    aria-label="Cerca"
+                    placeholder="Cerca ..."
+                >
+            </div>
         </div>
 
         <div v-if="countriesData.length" class="countries">
 
             <country-item
-                v-for="country in countriesData"
+                v-for="country in dataFiltered"
                 :key="country.country"
                 :item="country"
             />
@@ -96,15 +104,15 @@
                               { country }
                           ) => covid.historical(
                               null,
-                              country 
-                          ) 
+                              country
+                          )
                       );
 
                       // eslint-disable-next-line compat/compat
                       return Promise.all(
-                          promises 
+                          promises
                       );
-            
+
                   }
                   , filterLastWeek = countries => {
 
@@ -130,31 +138,31 @@
                                       ) {
 
                                           arr.push(
-                                              country.timeline.deaths[ key ] 
+                                              country.timeline.deaths[ key ]
                                           );
 
                                       }
-        
+
                                   }
 
                               }
 
                               countriesArray.push(
                                   arr.slice(
-                                      arr.length - amountOfDays 
-                                  ) 
+                                      arr.length - amountOfDays
+                                  )
                               );
-                
-                          } 
+
+                          }
                       );
 
                       return countriesArray;
-            
+
                   }
                   , mergeData = (
                       countryData,
                       historicalData,
-                      historicalAll 
+                      historicalAll
                   ) => {
 
                       const arr = [];
@@ -162,7 +170,7 @@
                       countryData.forEach(
                           (
                               country,
-                              i 
+                              i
                           ) => {
 
                               let daysWithoutDeaths = 0
@@ -174,13 +182,13 @@
 
                                   historicalData[ i ].reverse().forEach(
                                       (
-                                          item, index 
+                                          item, index
                                       ) => {
 
-                                          if( item === historicalData[ i ][ 0 ] && index !== 0 && item !== historicalData[ i ][ index + 1 ] ) 
+                                          if( item === historicalData[ i ][ 0 ] && index !== 0 && item !== historicalData[ i ][ index + 1 ] )
                                               daysWithoutDeaths = index + 1;
-        
-                                      } 
+
+                                      }
                                   );
 
                               }
@@ -195,23 +203,23 @@
 
                                           const deaths = objValues(
                                                     c?.timeline?.deaths ?? []
-                                                )[ 
+                                                )[
                                                     objValues(
                                                         c.timeline.deaths ?? []
-                                                    ).length - 1 
+                                                    ).length - 1
                                                 ]
                                                 , cases = objValues(
-                                                    c.timeline.cases 
-                                                )[ 
+                                                    c.timeline.cases
+                                                )[
                                                     objValues(
-                                                        c.timeline.cases 
+                                                        c.timeline.cases
                                                     ).length - 1
                                                 ]
                                                 , recovered = objValues(
-                                                    c.timeline.recovered 
-                                                )[ 
+                                                    c.timeline.recovered
+                                                )[
                                                     objValues(
-                                                        c.timeline.recovered 
+                                                        c.timeline.recovered
                                                     ).length - 1
                                                 ]
                                           ;
@@ -223,12 +231,12 @@
                                           );
 
                                           recoveredDifference = Math.abs(
-                                              country.recoveredPercent - recoveredYesterday 
+                                              country.recoveredPercent - recoveredYesterday
                                           );
-                        
+
                                       }
-                    
-                                  } 
+
+                                  }
                               );
 
                               arr.push(
@@ -237,19 +245,19 @@
                                       historicalData: historicalData[ i ],
                                       daysWithoutDeaths,
                                       recoveredYesterday,
-                                      recoveredDifference, 
-                                  } 
+                                      recoveredDifference,
+                                  }
                               );
-                
-                          } 
+
+                          }
                       );
 
                       return arr;
-            
+
                   }
                   , getAllCalculations = (
                       data,
-                      countriesData 
+                      countriesData
                   ) => {
 
                       const updated = new Date(
@@ -274,22 +282,22 @@
                                     3
                                 )
                             , noDeaths = countriesData.filter(
-                                item => item.daysWithoutDeaths > 0 && item.todayDeaths === 0 
+                                item => item.daysWithoutDeaths > 0 && item.todayDeaths === 0
                             )
                             , criticalLessThanFive = countriesData
                                 .filter(
-                                    item => item.nonCriticalPercent > 95 
+                                    item => item.nonCriticalPercent > 95
                                 )
                                 .length / countriesData.length * 100
                             , recoveredMostDifference = countriesData
                                 .filter(
-                                    item => item.recoveredYesterday > 0 && item.recoveredYesterday !== item.recoveredPercent 
+                                    item => item.recoveredYesterday > 0 && item.recoveredYesterday !== item.recoveredPercent
                                 )
                                 .sort(
                                     (
                                         a,
-                                        b 
-                                    ) => b.recoveredDifference - a.recoveredDifference 
+                                        b
+                                    ) => b.recoveredDifference - a.recoveredDifference
                                 )[ 0 ]
                       ;
 
@@ -300,14 +308,14 @@
                           mostRecovered,
                           noDeaths,
                           criticalLessThanFive,
-                          recoveredMostDifference, 
+                          recoveredMostDifference,
                       };
-            
+
                   }
                   , getCountriesCalculations = data => {
 
                       const dataFiltered = data.filter(
-                                country => country.country !== 'World' 
+                                country => country.country !== 'World'
                             )
                             , updated = []
                       ;
@@ -341,64 +349,64 @@
                                           recoveredPercent,
                                           criticalPercent,
                                           nonCriticalPercent,
-                                          activePercent, 
-                                      } 
+                                          activePercent,
+                                      }
                                   );
-                    
+
                               }
-                
-                          } 
+
+                          }
                       );
 
                       return updated;
-            
+
                   }
             ;
-            
+
             try {
 
                 // Current country data
                 const countries = await covid.countries()
                       , countriesCalculated = getCountriesCalculations(
-                          countries 
+                          countries
                       )
                       // Historical country data
                       , countriesHistorical = await getHistorical(
-                          countriesCalculated 
+                          countriesCalculated
                       )
                       , countriesHistoricalFiltered = filterLastWeek(
-                          countriesHistorical 
+                          countriesHistorical
                       )
                       , mergedData = mergeData(
                           countriesCalculated,
                           countriesHistoricalFiltered,
-                          countriesHistorical 
+                          countriesHistorical
                       )
                       // Global data
                       , global = await covid.all()
                       , globalCalculated = getAllCalculations(
                           global,
-                          mergedData 
+                          mergedData
                       )
                       , countriesData = mergedData.slice().sort(
                           (
-                              a, b 
-                          ) => ( ( a.recoveredPercent < b.recoveredPercent ) ? 1 : - 1 ) 
+                              a, b
+                          ) => ( ( a.recoveredPercent < b.recoveredPercent ) ? 1 : - 1 )
                       )
                       , globalData = globalCalculated
                 ;
-                
+
                 return {
                     countriesData,
                     globalData,
                 };
-            
+
             } catch( e ) {
 
                 console.error(
-                    e 
+                    e
                 );
-            
+
             }
 
         },
@@ -406,8 +414,30 @@
             {
                 countriesData: [],
                 globalData: {},
+                search: '',
             }
         ),
+        computed: {
+            searchToUppercase() {
+
+                return this.search.toUpperCase();
+
+            },
+            dataFiltered() {
+
+                if( ! this.search )
+                    return this.countriesData;
+
+                return this.countriesData.filter(
+                    (
+                        { country }
+                    ) => country.toUpperCase().includes(
+                        this.searchToUppercase
+                    )
+                );
+
+            },
+        },
         head() {
 
             return {
@@ -422,7 +452,7 @@
                     },
                 ],
             };
-        
+
         },
         jsonld() {
 

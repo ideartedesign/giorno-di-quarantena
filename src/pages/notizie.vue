@@ -3,8 +3,17 @@
 
         <div v-if="totalArticles.length" class="totalArticles">
 
+            <div class="search_container">
+                <input
+                    v-model="search"
+                    type="text"
+                    aria-label="Cerca"
+                    placeholder="Cerca ..."
+                >
+            </div>
+
             <notizia
-                v-for="notizia in totalArticles"
+                v-for="notizia in dataFiltered"
                 :key="notizia.id"
                 :item="notizia"
             />
@@ -12,7 +21,7 @@
         </div>
 
         <div class="actions">
-            <h1>{{ totalResults }} Articoli e notizie</h1>
+            <h1>{{ totalArticles.length }} Articoli e notizie</h1>
             <a
                 title="Powered by News API"
                 class="btn margin padding"
@@ -98,7 +107,7 @@
                           '/everything',
                           {
                               params: {
-                                  qInTitle: 'covid',
+                                  qInTitle: 'coronavirus',
                                   from: '2020-04-01',
                                   sortBy: 'relevancy',
                                   language: 'it',
@@ -130,7 +139,6 @@
                 );
 
                 return {
-                    totalResults: totalArticles.length,
                     totalArticles,
                 };
 
@@ -145,10 +153,39 @@
         },
         data: () => (
             {
-                totalResults: 0,
                 totalArticles: [],
+                search: '',
             }
         ),
+        computed: {
+            searchToUppercase() {
+
+                return this.search.toUpperCase();
+
+            },
+            dataFiltered() {
+
+                if( ! this.search )
+                    return this.totalArticles;
+
+                return this.totalArticles.filter(
+                    (
+                        {
+                            title,
+                            description,
+                        }
+                    ) => (
+                        title.toUpperCase().includes(
+                            this.searchToUppercase
+                        )
+                        || description.toUpperCase().includes(
+                            this.searchToUppercase
+                        )
+                    )
+                );
+
+            },
+        },
         head() {
 
             return {
