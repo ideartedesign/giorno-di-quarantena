@@ -122,9 +122,11 @@
 
     &__badge {
 
-        padding: 3px;
+        display: inline-block;
+        margin: 0 8px;
+        padding: 2px 4px;
         color: #fff;
-        font-size: .69rem;
+        font-size: .72rem;
         border-radius: 6px;
 
     }

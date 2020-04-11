@@ -10,56 +10,12 @@
 
     position: relative;
     margin: 16px 0;
-    padding: 8px 24px;
+    padding: 16px;
     overflow: hidden;
     text-align: justify;
     border-radius: $thickness;
     box-shadow: ( - $thickness ) ( - $thickness ) ( $thickness * 2 ) 0 $color-box-shadow-start, $thickness $thickness ( $thickness * 2 ) 0 $color-box-shadow-end;
     transition: var( --transition, $transition );
-
-    &::before,
-    &::after {
-
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 0;
-        background-color: $color-box-shadow-start;
-        border-radius: 6px;
-        opacity: .9;
-        transition: var( --transition, $transition );
-        content: "";
-
-    }
-
-    &::after {
-
-        top: 8px;
-        right: 8px;
-        bottom: 8px;
-        left: 8px;
-
-    }
-
-    &:active,
-    &:focus,
-    &:hover {
-
-        &::before {
-
-            opacity: .18;
-
-        }
-
-        &::after {
-
-            opacity: .96;
-
-        }
-
-    }
 
     &__header,
     &__footer,
@@ -82,8 +38,52 @@
         top: 0;
         right: 0;
         left: 0;
-        z-index: -1;
-        height: auto;
+        display: block;
+
+        img {
+
+            width: 100%;
+            height: auto;
+
+        }
+
+        &__container {
+
+            position: relative;
+            top: 0;
+            right: 0;
+            left: 0;
+            z-index: 0;
+            margin: -16px -16px 0;
+            padding-top: 56.25%;
+            overflow: hidden;
+            font-size: 0;
+            text-align: center;
+
+            &--loading {
+
+                &::after {
+
+                    position: absolute;
+                    top: calc( 50% - 12px );
+                    right: 0;
+                    bottom: 0;
+                    left: calc( 50% - 12px );
+                    z-index: 1;
+                    display: block;
+                    width: 24px;
+                    height: 24px;
+                    background-color: $color-background;
+                    border-radius: 50%;
+                    animation: rotate 2.4s cubic-bezier( 0, .2, .8, 1 ) infinite;
+                    content: "";
+                    mix-blend-mode: difference;
+
+                }
+
+            }
+
+        }
 
     }
 
@@ -98,7 +98,7 @@
         display: inline-block;
         width: 8px;
         height: 8px;
-        margin-right: 8px;
+        margin: 0 8px;
         vertical-align: middle;
         background-color: $color-background;
         border-radius: 50%;
@@ -129,9 +129,38 @@
 
     &__footer {
 
-        border-top: 1px solid $color-box-shadow-end;
+        border-top: 1px solid $color-background;
 
     }
 
+
+}
+
+@keyframes rotate {
+
+    0%,
+    100% {
+
+        animation-timing-function: cubic-bezier( .5, 0, 1, .5 );
+
+    }
+
+    0% {
+
+        transform: rotateY( 0deg );
+
+    }
+    50% {
+
+        transform: rotateY( 1800deg );
+        animation-timing-function: cubic-bezier( 0, .5, .5, 1 );
+
+    }
+
+    100% {
+
+        transform: rotateY( 3600deg );
+
+    }
 
 }
