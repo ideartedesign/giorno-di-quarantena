@@ -35,6 +35,8 @@ module.exports = {
                     'multicolumn',
                     'featurequeries',
                     'css-featurequeries',
+                    'css-mixblendmode',
+                    'mixblendmode',
                     'object-fit',
                     'calc',
                     'border-radius',
