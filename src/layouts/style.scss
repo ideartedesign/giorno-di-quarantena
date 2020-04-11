@@ -137,9 +137,20 @@
 
         }
 
-        ::v-deep > .social-title {
+        .social-title,
+        .feedback-title {
 
             font-size: .9rem;
+
+        }
+
+        .feedback-title {
+
+            a {
+
+                text-decoration: underline;
+
+            }
 
         }
 

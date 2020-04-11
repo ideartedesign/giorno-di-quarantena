@@ -11,7 +11,7 @@
             >
                 <h4>#giornodiquarantena</h4>
             </nuxt-link>
-            
+
             <div class="day-night-toggle">
                 <day-night-toggle
                     v-model="isDarkTheme"
@@ -78,10 +78,10 @@
                     giornodiquarantena.it
                 </nuxt-link>
             </p>
-            
-            <client-only>
-                <div class="social-container">
-                    
+
+            <div class="social-container">
+
+                <client-only>
                     <social-sharing
                         :url="url"
                         :title="title"
@@ -141,18 +141,33 @@
 
                         </div>
                     </social-sharing>
+                </client-only>
 
-                    <h6 class="social-title">
-                        <small>
+                <h6 class="social-title">
+                    <small>
+                        <em>
+                            condividi (non il virus)<br>
+                            #iorestoacasa #iorestopositivo
+                        </em>
+                    </small>
+                </h6>
+
+                <p v-if="feedbackUrl" class="feedback-title">
+                    <small>
+                        <a
+                            :href="feedbackUrl"
+                            title="Lascia un feedback"
+                            rel="noopener"
+                            target="_blank"
+                        >
                             <em>
-                                condividi (non il virus)<br>
-                                #iorestoacasa #iorestopositivo
+                                Lascia un feedback
                             </em>
-                        </small>
-                    </h6>
+                        </a>
+                    </small>
+                </p>
 
-                </div>
-            </client-only>
+            </div>
 
             <p>
                 <a
@@ -192,6 +207,7 @@
                 description: process.env.DESCRIPTION,
                 url: process.env.URL,
                 keywords: process.env.KEYWORDS,
+                feedbackUrl: process.env.FEEDBACK_URL,
             }
         ),
         mounted() {
