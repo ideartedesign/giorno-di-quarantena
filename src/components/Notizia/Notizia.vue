@@ -1,13 +1,28 @@
 <template>
     <article class="notizia">
 
-        <img
+        <div
             v-if="item.urlToImage"
-            :src="item.urlToImage"
-            :alt="item.title"
-            loading="lazy"
-            class="notizia__img"
+            :class="{
+                'notizia__img__container--loading': loading,
+            }"
+            class="notizia__img__container"
         >
+            <a
+                :href="item.url ? item.url : '#'"
+                :title="item.title"
+                rel="noopener"
+                target="_blank"
+                class="notizia__img"
+            >
+                <img
+                    :src="item.urlToImage"
+                    :alt="item.title"
+                    loading="lazy"
+                    @load="loading = false"
+                >
+            </a>
+        </div>
 
         <header class="notizia__header">
 
@@ -73,6 +88,11 @@
                 required: true,
             },
         },
+        data: () => (
+            {
+                loading: true,
+            }
+        ),
     };
 </script>
 
