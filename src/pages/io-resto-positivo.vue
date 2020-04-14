@@ -102,10 +102,14 @@
                       const promises = countries.map(
                           (
                               { country }
-                          ) => covid.historical(
-                              null,
-                              country
-                          )
+                          ) => covid
+                              .historical(
+                                  null,
+                                  country
+                              )
+                              .catch(
+                                  console.error
+                              )
                       );
 
                       // eslint-disable-next-line compat/compat
@@ -263,9 +267,6 @@
                       const updated = new Date(
                                 data.updated
                             )
-                                .toLocaleString(
-                                    'it-IT'
-                                )
                             , recoveredPercent = getPercent(
                                 data.recovered,
                                 data.cases,
