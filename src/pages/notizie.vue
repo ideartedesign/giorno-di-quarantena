@@ -59,6 +59,14 @@
                 const totalArticles = [
                           {
                               type: 'highlight',
+                              urlToImage: 'https://i2.wp.com/www.francescocosta.net/wp-content/uploads/2020/04/contagi.png',
+                              title: 'I dati ufficiali non avevano senso prima e non hanno senso adesso',
+                              description: `I dati ufficiali sull'epidemia diffusi ieri dalla Protezione Civile hanno generato qualche preoccupazione. Dopo oltre 40 giorni di quarantena – quarantena decisa per combattere una malattia che avrebbe un tempo di incubazione di 14 giorni al massimo – ci sono molti segnali positivi ma non c’è il crollo del numero quotidiano dei nuovi contagiati che sarebbe stato logico aspettarsi.`,
+                              publishedAt: '2020-04-12',
+                              url: 'https://www.francescocosta.net/2020/04/12/dati-ufficiali-senza-senso/',
+                          },
+                          {
+                              type: 'highlight',
                               urlToImage: 'https://www.askanews.it/wp-content/uploads/2020/04/20200408_112455_18FE0EA7.jpg',
                               title: 'Fine del lock down (confinamento) di Wuhan',
                               description: `Dopo la revoca del confinamento obbligatorio, iniziata a mezzanotte ora locale, gli undici milioni di abitanti di Wuhan possono finalmente lasciare la città che ha visto nascere l'epidemia di coronavirus: sempre che, come ricorda il South China Post, siano in possesso del codice QR che garantisca la loro negatività e il non essere stati in contatto con dei contagiati.`,
