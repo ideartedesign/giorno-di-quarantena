@@ -29,18 +29,33 @@ export default {
                 hour12: false,
                 ... config,
             }
-        ;
-
-        // eslint-disable-next-line compat/compat
-        return new Intl
-            .DateTimeFormat(
-                lang,
-                options,
-            )
-            .format(
+            , isValid = v instanceof Date && ! isNaN(
                 v
             )
         ;
+
+        if( isValid ) {
+
+            return new Intl
+                .DateTimeFormat(
+                    lang,
+                    options,
+                )
+                .format(
+                    v
+                )
+            ;
+
+        }
+
+        console.error(
+            {
+                value,
+                v,
+            }
+        );
+
+        return value;
 
     },
 };

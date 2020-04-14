@@ -23,17 +23,32 @@ export default {
             , options = {
                 ... config,
             }
-        ;
-            
-        // eslint-disable-next-line compat/compat
-        return new Intl
-            .NumberFormat(
-                lang,
-                options,
-            ).format(
-                v,
+            , isValid = typeof v === 'number' && ! isNaN(
+                v
             )
         ;
+
+        if( isValid ) {
+
+            return new Intl
+                .NumberFormat(
+                    lang,
+                    options,
+                ).format(
+                    v,
+                )
+            ;
+
+        }
+
+        console.error(
+            {
+                value,
+                v,
+            }
+        );
+
+        return value;
 
     },
 };
