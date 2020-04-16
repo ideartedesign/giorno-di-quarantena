@@ -1,6 +1,10 @@
 <template>
     <section class="page container">
 
+        <h1 class="title">
+            {{ totalArticles.length }} Articoli e notizie ({{ verifiedArticles }} verificate)
+        </h1>
+
         <div v-if="totalArticles.length" class="totalArticles">
 
             <div class="search_container">
@@ -21,7 +25,6 @@
         </div>
 
         <div class="actions">
-            <h1>{{ totalArticles.length }} Articoli e notizie</h1>
             <a
                 title="Powered by News API"
                 class="btn margin padding"
@@ -98,6 +101,7 @@
                               url: 'https://www.epicentro.iss.it/coronavirus/',
                           },
                       ]
+                      , verifiedArticles = totalArticles.length
                       // Current country data
                       , { articles: top } = await $axios.$get(
                           '/top-headlines',
@@ -148,6 +152,7 @@
 
                 return {
                     totalArticles,
+                    verifiedArticles,
                 };
 
             } catch( e ) {
@@ -247,6 +252,13 @@
 
 <style scoped lang="scss">
     .page {
+
+        .title {
+
+            font-weight: bolder;
+            font-size: 45px;
+
+        }
 
         .articles {
 
