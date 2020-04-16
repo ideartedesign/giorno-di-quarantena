@@ -1,9 +1,16 @@
 <template>
     <section class="page container">
 
-        <h1 class="title">
-            {{ totalArticles.length }} Articoli e notizie ({{ verifiedArticles }} verificate)
-        </h1>
+        <div class="global-data">
+            <h1 class="title">
+                {{ totalArticles.length }} Articoli e notizie
+            </h1>
+            <h2 v-if="verifiedArticles" class="subtitle">
+                <small>
+                    <em>{{ verifiedArticles | number }} verificate</em>
+                </small>
+            </h2>
+        </div>
 
         <div v-if="totalArticles.length" class="totalArticles">
 
@@ -258,6 +265,14 @@
 
             font-weight: bolder;
             font-size: 45px;
+
+        }
+
+        .subtitle {
+
+            margin: 8px auto;
+            font-weight: bold;
+            font-size: 25px;
 
         }
 
