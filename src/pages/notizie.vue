@@ -168,6 +168,7 @@
             {
                 totalArticles: [],
                 search: '',
+                verifiedArticles: 0,
             }
         ),
         computed: {
