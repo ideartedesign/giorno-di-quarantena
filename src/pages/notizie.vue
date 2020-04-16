@@ -2,14 +2,14 @@
     <section class="page container">
 
         <div class="global-data">
-            <h1 class="title">
+            <h2 class="title">
                 {{ totalArticles.length }} Articoli e notizie
-            </h1>
-            <h2 v-if="verifiedArticles" class="subtitle">
+            </h2>
+            <h3 v-if="verifiedArticles" class="subtitle">
                 <small>
                     <em>{{ verifiedArticles | number }} verificate</em>
                 </small>
-            </h2>
+            </h3>
         </div>
 
         <div v-if="totalArticles.length" class="totalArticles">
@@ -32,6 +32,9 @@
         </div>
 
         <div class="actions">
+            <h1>
+                Articoli e notizie verificati
+            </h1>
             <a
                 title="Powered by News API"
                 class="btn margin padding"
@@ -271,6 +274,7 @@
         .subtitle {
 
             margin: 8px auto;
+            color: #27ae60;
             font-weight: bold;
             font-size: 25px;
 
