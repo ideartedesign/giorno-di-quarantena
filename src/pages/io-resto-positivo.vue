@@ -315,7 +315,7 @@
                   }
                   , getCountriesCalculations = data => {
 
-                      const dataFiltered = data.filter(
+                      const dataFiltered = ( data || [] ).filter(
                                 country => country.country !== 'World'
                             )
                             , updated = []
