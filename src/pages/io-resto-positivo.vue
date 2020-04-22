@@ -99,23 +99,36 @@
                   ) => ( value1 / ( value2 - value3 ) * 100 )
                   , getHistorical = countries => {
 
-                      const promises = countries.map(
+                      const promises = [];
+
+                      countries.forEach(
                           (
                               { country }
-                          ) => covid
-                              .historical(
-                                  null,
-                                  country
-                              )
-                              .catch(
-                                  console.error
-                              )
+                          ) => {
+
+                              promises.push(
+                                  covid
+                                      .historical(
+                                          null,
+                                          country
+                                      )
+                                      .catch(
+                                          console.error
+                                      )
+                              );
+
+                          }
                       );
 
                       // eslint-disable-next-line compat/compat
-                      return Promise.all(
-                          promises
-                      );
+                      return Promise
+                          .all(
+                              promises
+                          )
+                          .catch(
+                              console.error
+                          )
+                      ;
 
                   }
                   , filterLastWeek = countries => {
@@ -318,9 +331,13 @@
                   }
                   , getCountriesCalculations = data => {
 
-                      const dataFiltered = ( data || [] ).filter(
-                                country => country.country !== 'World'
-                            )
+                      const dataFiltered = data
+                                ? data.filter(
+                                    (
+                                        { country }
+                                    ) => country !== 'World'
+                                )
+                                : []
                             , updated = []
                       ;
 
@@ -370,7 +387,17 @@
             try {
 
                 // Current country data
-                const countries = await covid.countries()
+                const countries = await covid.countries().catch(
+                          e => {
+
+                              console.error(
+                                  e
+                              );
+
+                              return [];
+
+                          }
+                      )
                       , countriesCalculated = getCountriesCalculations(
                           countries
                       )
@@ -387,7 +414,17 @@
                           countriesHistorical
                       )
                       // Global data
-                      , global = await covid.all()
+                      , global = await covid.all().catch(
+                          e => {
+
+                              console.error(
+                                  e
+                              );
+
+                              return {};
+
+                          }
+                      )
                       , globalCalculated = getAllCalculations(
                           global,
                           mergedData
