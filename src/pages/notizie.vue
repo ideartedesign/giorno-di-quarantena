@@ -72,6 +72,22 @@
                 const totalArticles = [
                           {
                               type: 'highlight',
+                              urlToImage: 'https://www.ilpost.it/wp-content/uploads/2020/04/GettyImages-1207839450-copia.jpg',
+                              title: 'Cosa ci aspetta',
+                              description: `Un lungo articolo del New York Times raccoglie analisi e previsioni di venti esperti di epidemie, salute e storia, delineando diversi scenari sul prossimo anno e forse di più.`,
+                              publishedAt: '2020-04-22',
+                              url: 'https://www.cultweek.com/pandemia-quel-che-sapevamo-e-che-non-e-servito-a-niente-sapere/',
+                          },
+                          {
+                              type: 'highlight',
+                              urlToImage: 'https://www.cultweek.com/wp-content/uploads/2020/04/covid-19.jpeg',
+                              title: 'Pandemia: quel che sapevamo',
+                              description: `Davvero il Big one non si poteva prevedere? Davvero non avevamo avvisaglie? Davvero le scelte di politica sanitaria non hanno concorso all'esito della pandemia che è sotto gli occhi di tutti? La risposta è no, più d'uno ci aveva avvertito. Ed è stato ignorato.`,
+                              publishedAt: '2020-04-18',
+                              url: 'https://www.cultweek.com/pandemia-quel-che-sapevamo-e-che-non-e-servito-a-niente-sapere/',
+                          },
+                          {
+                              type: 'highlight',
                               urlToImage: 'https://i2.wp.com/www.francescocosta.net/wp-content/uploads/2020/04/contagi.png',
                               title: 'I dati ufficiali non avevano senso prima e non hanno senso adesso',
                               description: `I dati ufficiali sull'epidemia diffusi ieri dalla Protezione Civile hanno generato qualche preoccupazione. Dopo oltre 40 giorni di quarantena – quarantena decisa per combattere una malattia che avrebbe un tempo di incubazione di 14 giorni al massimo – ci sono molti segnali positivi ma non c’è il crollo del numero quotidiano dei nuovi contagiati che sarebbe stato logico aspettarsi.`,
