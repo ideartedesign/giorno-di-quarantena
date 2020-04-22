@@ -200,6 +200,9 @@
                               historicalAll.forEach(
                                   c => {
 
+                                      if( ! country || ! c )
+                                          return;
+
                                       if( ! country.country || ! c.country )
                                           return;
 
