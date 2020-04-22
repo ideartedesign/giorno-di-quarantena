@@ -387,17 +387,7 @@
             try {
 
                 // Current country data
-                const countries = await covid.countries().catch(
-                          e => {
-
-                              console.error(
-                                  e
-                              );
-
-                              return [];
-
-                          }
-                      )
+                const countries = await covid.countries()
                       , countriesCalculated = getCountriesCalculations(
                           countries
                       )
@@ -414,17 +404,7 @@
                           countriesHistorical
                       )
                       // Global data
-                      , global = await covid.all().catch(
-                          e => {
-
-                              console.error(
-                                  e
-                              );
-
-                              return {};
-
-                          }
-                      )
+                      , global = await covid.all()
                       , globalCalculated = getAllCalculations(
                           global,
                           mergedData
