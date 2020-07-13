@@ -113,7 +113,7 @@
         "request": "latest",
         "request-promise-native": "latest",
         "sass-loader": "^8.0.2",
-        "standard-version": "^7.1.0",
+        "standard-version": "^8.0.1",
         "stylelint": "^13.3.3",
         "stylelint-config-rational-order": "^0.1.2",
         "stylelint-config-sass-guidelines": "^7.0.0",
