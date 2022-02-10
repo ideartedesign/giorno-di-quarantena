@@ -102,7 +102,7 @@
         "jest": "^25.4.0",
         "jsdom": "^16.2.2",
         "modern-normalize": "^0.6.0",
-        "node-sass": "^4.13.1",
+        "node-sass": "^7.0.0",
         "postcss-combine-duplicated-selectors": "^8.1.0",
         "postcss-html": "^0.36.0",
         "postcss-nested": "latest",
